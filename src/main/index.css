@@ -5,10 +5,12 @@
   padding: 0;
 }
 
-/* .body {
-  -webkit-animation: chameleon 19s infinite;
-          animation: chameleon 19s infinite;
-} */
+body {
+  width: 100%;
+}
+#root {
+  width: 100%;
+}
 .text {
   position: absolute;
   left: 20%;
@@ -23,7 +25,7 @@ h1 {
   font-weight: lighter;
 }
 .outline {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);

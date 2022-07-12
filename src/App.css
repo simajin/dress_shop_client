@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;}
 li { list-style: none; }
 a { text-decoration: none; color: inherit; }
@@ -6,7 +7,7 @@ a { text-decoration: none; color: inherit; }
 .App {
   -webkit-animation: chameleon 10s infinite forwards;
   animation: chameleon 10s infinite forwards;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   width: 100%;
@@ -76,12 +77,13 @@ a { text-decoration: none; color: inherit; }
 /* header */
 #header {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  position: fixed;
 }
 .inner {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -116,7 +118,7 @@ a { text-decoration: none; color: inherit; }
 #menu_bar {
   width: 50px;
   height: 50px;
-  position: absolute;
+  position: fixed;
   top: 60px;
   right: 80px;
 }
@@ -128,7 +130,7 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 8px;
 }
 #menu {
-  width: 25%;
+  width: 20%;
   height: 100vh;
   position: absolute;
   right: -500px;
@@ -141,4 +143,78 @@ a { text-decoration: none; color: inherit; }
 }
 #menu > li {
   padding-bottom: 16px;
+}
+#menu:hover .barBtn  {
+  display: block;
+}
+#menu .barBtn {
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  font-size: 32px;
+  color: #d3848d;
+  display: none;
+}
+
+/* 여기서부터 footer */
+#footer {
+  width: 100%;
+  height: 150px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  
+}
+#footer #hideFooter{
+  width: 100%;
+  height: 150px;
+  background: #fff;
+  position: absolute;
+  bottom: -150px;
+}
+#footer #footerInner {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  font-family: 'Playfair Display','Gowun Dodum',serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  
+}
+#footer #logoBot{
+  width: 150px;
+  height: 80px;
+  position: absolute;
+  right: 100px;
+  top: -70px;
+}
+#wLogoBot{
+  width: 150px;
+  height: 80px;
+}
+.cls-2{
+  fill:none;
+  stroke: rgba(0, 0, 0, 0.63);
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:3px;
+}
+#footerBtn {
+  position: absolute;
+  left: 3%;
+  bottom: 40%;
+  width: 50px;
+  height: 50px;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 45px;
+  color: #fff;
+  z-index: 100;
 }
