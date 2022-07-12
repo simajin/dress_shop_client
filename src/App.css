@@ -87,27 +87,24 @@ a { text-decoration: none; color: inherit; }
 }
 @keyframes logo-ani {
   0%{
-      stroke-dashoffset: 600px;
+      stroke-dashoffset: 0;
   }
   50%{
-      stroke-dashoffset: 300px;
+      stroke-dashoffset: 200;
   }
   100%{
-      stroke-dashoffset: 600px;
+      stroke-dashoffset: 0;
      
   }
 }
 #wLogo{
   width: 150px;
   height: 80px;
-  stroke-dasharray: 600;
+  stroke-dasharray: 200;
   stroke-dashoffset: 0;
   position: absolute;
   top: 40px;
   left: 30px;
-}
-#wLogo:hover{
-  animation: logo-ani 3s linear forwards;
 }
 .cls-1{
   fill:none;
