@@ -1,38 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+* {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;}
+li { list-style: none; }
+a { text-decoration: none; color: inherit; }
+
 .App {
-  text-align: center;
+  -webkit-animation: chameleon 10s infinite forwards;
+  animation: chameleon 10s infinite forwards;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@-webkit-keyframes chameleon {
+  0% {
+    background: #e4c0c4;
+  }
+  12.5% {
+    background: #f1b9be;
+  }
+  25% {
+    background: #dbafb4;
+  }
+  37.5% {
+    background: #daa5ab;
+  }
+  50% {
+    background: #d4989f;
+  }
+  62.5% {
+    background: #daa5ab;
+  }
+  75% {
+    background: #dbafb4;
+  }
+  87.5% {
+    background: #f1b9be;
+  }
+  100% {
+    background: #e4c0c4;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes chameleon {
+  0% {
+    background: #e4c0c4;
+  }
+  12.5% {
+    background: #f1b9be;
+  }
+  25% {
+    background: #dbafb4;
+  }
+  37.5% {
+    background: #daa5ab;
+  }
+  50% {
+    background: #d4989f;
+  }
+  62.5% {
+    background: #daa5ab;
+  }
+  75% {
+    background: #dbafb4;
+  }
+  87.5% {
+    background: #f1b9be;
+  }
+  100% {
+    background: #e4c0c4;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+/* header */
+#header {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.inner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+@keyframes logo-ani {
+  0%{
+      stroke-dashoffset: 600px;
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+      stroke-dashoffset: 300px;
   }
+  100%{
+      stroke-dashoffset: 600px;
+     
+  }
+}
+#wLogo{
+  width: 150px;
+  height: 80px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+}
+#wLogo:hover{
+  animation: logo-ani 3s linear forwards;
+}
+.cls-1{
+  fill:none;
+  stroke: rgba(255, 255, 255, 0.63);
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:3px;
+}
+#menu_bar {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 60px;
+  right: 80px;
+}
+#menu_bar span {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.63);
+  margin-bottom: 8px;
+}
+#menu {
+  width: 25%;
+  height: 100vh;
+  position: absolute;
+  right: -500px;
+  font-size: 46px;
+  font-family: 'Playfair Display', serif;
+  color: #d3848d;
+  background-color: rgba(255, 255, 255, 0.63);
+  padding-top: 150px;
+  padding-left: 50px;
+}
+#menu > li {
+  padding-bottom: 16px;
 }

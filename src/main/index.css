@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* .body {
+  -webkit-animation: chameleon 19s infinite;
+          animation: chameleon 19s infinite;
+} */
+.text {
+  position: absolute;
+  left: 20%;
+  top: 38%;
+  z-index: 10;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 180px;
+  z-index: 10;
+  font-weight: lighter;
+}
+.outline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.waves {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: rgb(241, 210, 210);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.waves:before, .waves:after {
+  content: "";
+  position: absolute;
+  background: rgb(240, 196, 196);
+  margin-left: -12px;
+  margin-top: -12px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-animation: wave 3s infinite linear;
+          animation: wave 3s infinite linear;
+}
+.waves:after {
+  opacity: 0;
+  -webkit-animation: wave 3s 1.5s infinite linear;
+          animation: wave 3s 1.5s infinite linear;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(3.5);
+            transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+@keyframes wave {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(3.5);
+            transform: scale(3.5);
+    opacity: 0;
+  }
+}
+/* @-webkit-keyframes chameleon {
+  0% {
+    background: #e4c0c4;
+  }
+  25% {
+    background: #f1b9be;
+  }
+  50% {
+    background: #dbafb4;
+  }
+  75% {
+    background: #daa5ab;
+  }
+  100% {
+    background: #d4989f;
+  }
+}
+@keyframes chameleon {
+  0% {
+    background: #e4c0c4;
+  }
+  25% {
+    background: #f1b9be;
+  }
+  50% {
+    background: #dbafb4;
+  }
+  75% {
+    background: #daa5ab;
+  }
+  100% {
+    background: #d4989f;
+  }
+} */
