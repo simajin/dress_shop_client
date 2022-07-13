@@ -42,6 +42,10 @@ const Header = () => {
         return isEventOn;
 
     }
+    //어바웃 클릭이벤트
+    function aboutEvent(){
+        window.scrollTo (0,800);
+    }
 
 
     return (
@@ -53,7 +57,8 @@ const Header = () => {
                     <span className='bugerTab'></span>
                 </div>
                 <ul id="menu">
-                    <li>ABOUT</li>
+                    <li>LOGIN<br/><br/></li>
+                    <li onClick={aboutEvent}>ABOUT</li>
                     <li>SHOP</li>
                     <li>CART</li>
                     <li>SEARCH</li>
