@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     // 메뉴 클릭이벤트 한번 눌렀을때
     function menuClick() {
         let menu = document.querySelector('#menu');
         let bugerTab = document.querySelectorAll('.bugerTab');
-        let menuBar = document.querySelector('#menu_bar');
+        // let menuBar = document.querySelector('#menu_bar');
         menu.style.right = '0';
         menu.style.transition = '0.5s';
         bugerTab[0].style.display = 'none';
@@ -59,7 +59,7 @@ const Header = () => {
                 <ul id="menu">
                     <li>LOGIN<br/><br/></li>
                     <li onClick={aboutEvent}>ABOUT</li>
-                    <li>SHOP</li>
+                    <li><Link to="/shop">SHOP</Link></li>
                     <li>CART</li>
                     <li>SEARCH</li>
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>

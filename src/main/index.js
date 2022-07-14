@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react';
+import About from '../components/About';
 import './index.css';
 
 const MainPage = () => {
@@ -20,6 +21,7 @@ const MainPage = () => {
     },[])
     //scroll 사라지게
     return (
+        <>
         <div className='body'>
             <div className="text">
                 <h1>YOUR DREAM</h1>
@@ -36,7 +38,11 @@ const MainPage = () => {
                 <div id='botLine'></div>
             </div>
         </div>
+            <About/>
+        </>
+
     );
 };
+
 
 export default MainPage;

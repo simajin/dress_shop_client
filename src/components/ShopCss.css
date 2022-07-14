@@ -1,0 +1,7 @@
+#shop {
+    display: flex;
+    justify-content: space-between;
+}
+#shopLeft {
+    color: #fff;
+}
