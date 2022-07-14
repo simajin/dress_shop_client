@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 const Header = () => {
@@ -57,7 +58,7 @@ const Header = () => {
                     <span className='bugerTab'></span>
                 </div>
                 <ul id="menu">
-                    <li>LOGIN<br/><br/></li>
+                    <li><Link to="/Login">LOGIN</Link><br/><br/></li>
                     <li onClick={aboutEvent}>ABOUT</li>
                     <li>SHOP</li>
                     <li>CART</li>

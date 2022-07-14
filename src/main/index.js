@@ -6,7 +6,6 @@ const MainPage = () => {
         window.addEventListener('scroll',()=>{
             let scrollBot = document.querySelector('#botLineDiv');
             let scrollTop = document.querySelector('#topLineDiv');
-            console.log(window.scrollY)
             if(window.scrollY > 1){
                 scrollBot.style.opacity = `${1-window.scrollY/200}`;
             }

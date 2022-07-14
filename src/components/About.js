@@ -1,7 +1,27 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import './AboutCss.css';
 
 const About = () => {
+    useEffect(()=>{
+        const aboutImg = document.querySelectorAll(".aboutImg");
+        const aboutText = document.querySelectorAll(".aboutText");
+        window.addEventListener('scroll',()=>{
+            for(let i=0; i<aboutImg.length; i++){
+                if(aboutImg[i].getBoundingClientRect().y < 0){
+                    aboutImg[i].style.transform = 'scale(0.9, 1.1)'
+                }else{
+                    aboutImg[i].style.transform = '';
+                }
+                if(aboutText[i].getBoundingClientRect().y < 200){
+                    aboutText[i].style.opacity = '0';
+                }else{
+                    aboutText[i].style.opacity = '1';
+                }
+            }
+
+        })
+
+    },[])
     return (
         <div id='about'>
             <div id="aboutCEO">

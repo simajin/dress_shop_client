@@ -3,7 +3,9 @@
 * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;}
 li { list-style: none; }
 a { text-decoration: none; color: inherit; }
-
+html{
+  scroll-behavior: smooth;
+}
 .App {
   -webkit-animation: chameleon 10s infinite forwards;
   animation: chameleon 10s infinite forwards;
