@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Header = () => {
     // 메뉴 클릭이벤트 한번 눌렀을때
@@ -59,7 +59,7 @@ const Header = () => {
                 <ul id="menu">
                     <li>LOGIN<br/><br/></li>
                     <li onClick={aboutEvent}>ABOUT</li>
-                    <li><Link to="/shop">SHOP</Link></li>
+                    {/* <li><Link to="/shop">SHOP</Link></li> */}
                     <li>CART</li>
                     <li>SEARCH</li>
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>
