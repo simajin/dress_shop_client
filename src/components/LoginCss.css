@@ -4,6 +4,8 @@
 #LoginContent {
     font-family: 'Playfair Display', serif;
     color: rgba(255, 255, 255, 0.63);
+    height: 100vh;
+    padding-top: 250px;  
 }
 #LoginContent h2 {
     font-size: 58px;

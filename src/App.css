@@ -84,8 +84,7 @@ html{
 /* header */
 #header {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: 200px;
   position: fixed;
 }
 .inner {
@@ -137,10 +136,10 @@ html{
   margin-bottom: 8px;
 }
 #menu {
-  width: 20%;
+  width: 100%;
   height: 100vh;
   position: absolute;
-  right: -500px;
+  /* right: -500px; */
   font-size: 46px;
   font-family: 'Playfair Display', serif;
   color: #d3848d;
@@ -224,4 +223,13 @@ html{
   font-size: 45px;
   color: #fff;
   z-index: 100;
+}
+aside {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  /* overflow: hidden; */
+  right: 0;
+  top:0;
+  z-index: 20;
 }
