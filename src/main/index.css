@@ -53,10 +53,8 @@ h1 {
   content: "";
   position: absolute;
   background: rgb(240, 196, 196);
-  /* margin-left: -12px;
-  margin-top: -12px; */
-  /* top: -25%;
-  left: -24%; */
+  margin-left: -25%;
+  margin-top: -24%;
   width: 150px;
   height: 150px;
   border-radius: 50%;

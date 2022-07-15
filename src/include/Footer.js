@@ -1,4 +1,5 @@
 import React from 'react';
+import { VscInfo } from "react-icons/vsc";
 
 const Footer = () => {
     let info = 1;
@@ -26,7 +27,7 @@ const Footer = () => {
     }
     return (
         <div id="footer">
-            <button id="footerBtn" onClick={showFooter}>ⓘ</button>
+            <button id="footerBtn" onClick={showFooter}><VscInfo/></button>
             <div id='hideFooter'>
                 <div id='footerInner'>
                     <p>2022 © W Wedding. All Rights Reserved.</p>
