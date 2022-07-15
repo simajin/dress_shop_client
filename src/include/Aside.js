@@ -7,7 +7,7 @@ const Aside = () => {
         let menu = document.querySelector('#menu');
         let bugerTab = document.querySelectorAll('.bugerTab');
         // let menuBar = document.querySelector('#menu_bar');
-        menu.style.right = '200px';
+        menu.style.right = '0';
         menu.style.transition = '0.5s';
         bugerTab[0].style.display = 'none';
         bugerTab[1].style.display = 'none';
@@ -37,7 +37,7 @@ const Aside = () => {
         <aside>
                 <ul id="menu">
                     <li><Link to="/Login">LOGIN</Link><br/><br/></li>
-                    <li onClick={aboutEvent}>ABOUT</li>
+                    <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li>CART</li>
                     <li>SEARCH</li>
