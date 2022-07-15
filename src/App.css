@@ -136,16 +136,17 @@ html{
   margin-bottom: 8px;
 }
 #menu {
-  width: 100%;
+  width: 20%;
   height: 100vh;
-  position: absolute;
-  /* right: -500px; */
+  position: fixed;
+  right: -500px;
   font-size: 46px;
   font-family: 'Playfair Display', serif;
   color: #d3848d;
   background-color: rgba(255, 255, 255, 0.63);
   padding-top: 150px;
   padding-left: 50px;
+  z-index: 20;
 }
 #menu > li {
   padding-bottom: 16px;
@@ -223,13 +224,4 @@ html{
   font-size: 45px;
   color: #fff;
   z-index: 100;
-}
-aside {
-  width: 20%;
-  height: 100vh;
-  position: fixed;
-  /* overflow: hidden; */
-  right: 0;
-  top:0;
-  z-index: 20;
 }

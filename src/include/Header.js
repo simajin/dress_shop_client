@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     // // 메뉴 클릭이벤트 한번 눌렀을때
@@ -24,7 +24,6 @@ const Header = () => {
     //     }, 300);
 
     // }
-    
 
     // 로고 이벤트
     let isEventOn = true;
@@ -40,7 +39,10 @@ const Header = () => {
     
         }
         return isEventOn;
-
+    }
+    function homeBtn(){
+        window.scrollTo(0,0) 
+        
     }
 
 
@@ -48,7 +50,7 @@ const Header = () => {
     return (
         <div id="header">
             <div className='inner'>
-                <h1><svg id="wLogo" onMouseEnter = {logoEvent} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50"><path id="logoLine" className="cls-1" d="M28.36,26S8.5,30.5,5.5,19.5s29-18,30-4a243.83,243.83,0,0,1,0,29h1.65S49.53,21.76,49.52,24.63,52.29,43.5,60.4,44.5s-1.9-11,14.1-40"/></svg></h1>
+                <h1><Link to="/"><svg id="wLogo" onClick={homeBtn} onMouseEnter = {logoEvent} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50"><path id="logoLine" className="cls-1" d="M28.36,26S8.5,30.5,5.5,19.5s29-18,30-4a243.83,243.83,0,0,1,0,29h1.65S49.53,21.76,49.52,24.63,52.29,43.5,60.4,44.5s-1.9-11,14.1-40"/></svg></Link></h1>
                 {/* <div id="menu_bar" onClick={menuClick}>
                     <span className='bugerTab'></span>
                     <span className='bugerTab'></span>

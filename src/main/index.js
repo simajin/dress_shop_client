@@ -12,8 +12,7 @@ const MainPage = () => {
             }
             if(window.scrollY > 600){
                 scrollTop.style.opacity = `${0+(window.scrollY/300)-2}`;
-            }else {
-                
+            }else {                
                 scrollTop.style.opacity = `${0-window.scrollY/1000}`;
             }
         })
