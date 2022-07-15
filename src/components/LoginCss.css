@@ -2,14 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 #LoginContent {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display','Gowun Dodum', serif;
     color: rgba(255, 255, 255, 0.63);
     height: 100vh;
     padding-top: 250px;  
 }
 #LoginContent h2 {
     font-size: 58px;
-    font-weight: lighter;
+    /* font-weight: lighter; */
+    font-weight: 600;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -23,17 +24,36 @@
     border: none;
     outline: none;
     margin-bottom: 16px;
-    padding: 20px 80px;
+    width: 350px;
+    height: 50px;
     background: rgba(255, 255, 255, 0.63);
+    padding-left: 10px;
 }
 #LoginContent ul {
     display: flex;
+    padding: 10px 0;
+}
+#LoginContent ul li {
+    font-size: 16px;
+    line-height: 16px;
+}
+#LoginContent ul li:not(:last-child) {
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.63);
+}
+#LoginContent ul li:last-child {
+    padding-left: 20px;
 }
 #LoginContent button {
     border: none;
     outline: none;
     margin-top: 16px;
-    background: rgba(255, 255, 255, 0.63);
-    width: 330px;
+    /* background: rgba(255, 255, 255, 0.63); */
+    background: #eecccf;
+    width: 350px;
     height: 50px;
+    color: #d4989f;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
 }

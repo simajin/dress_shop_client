@@ -7,17 +7,25 @@ import { Routes,Route } from 'react-router-dom';
 import Login from './components/Login';
 import Shop from './components/Shop';
 import Aside from './include/Aside';
+import ScrollToTop from './components/ScrollToTop';
+import Join from './components/Join';
+import DetailDress from './components/DetailDress';
+import Cart from './components/Cart';
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <Header/>
       <Aside/>
       <Routes>
         <Route path='/' element={<MainPage/>} />
         <Route path='/' element={<About/>} />
         <Route path="/Login" element={<Login/>} />
+        <Route path="/join" element={<Join/>} />
         <Route path='/shop' element={<Shop/>} />
+        <Route path='/shop/:id' element={<DetailDress/>} />
+        <Route path='/cart' element={<Cart/>} />
       </Routes>
       <Footer/>
     </div>

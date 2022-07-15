@@ -1,0 +1,61 @@
+h2{
+    text-align: center;
+    margin-bottom: 42px;
+    font-size: 40px;
+}
+#joinForm{
+    width: 40%;
+    height: 100vh;
+    background: inherit;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-family: 'Playfair Display','Gowun Dodum', serif;
+}
+#joinForm input{ 
+    width: 100%;
+    height: 30px;
+    padding: 0 14px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.63);
+    border-radius: 4px;
+}
+#joinForm .gender {
+    width: 10%;
+    height: 18px;
+}
+#joinForm .phoneNum {
+    display: flex;
+    justify-content: space-between;
+}
+#joinForm .phone { 
+    width: 28%;
+}
+#joinTable{
+    width: 100%;
+    height: 50%;
+}
+#joinTable tableTr{
+    margin: 40px 0;
+}
+#joinTable td:nth-child(1){
+    width: 20%;
+}
+#joinTable button{
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: #eecccf;;
+    color: #d4989f;
+    font-weight: 600;
+    margin: 14px;
+    font-size: 16px;
+}
+#joinTable .tableSubmit{
+    text-align: center;
+}

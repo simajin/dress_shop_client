@@ -1,0 +1,31 @@
+#detail{
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+#detailHead {
+    display: flex;
+    justify-content: space-between;
+}
+img{
+    width: 100%;
+    height: 500px;
+}
+#detailHead #detailLeft {
+    display: flex;
+}
+#detailLeft #imgList {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    width: 10%;
+    height: 500px;
+}
+#detailLeft #imgList li{
+    width: 100%;
+}
+#detailLeft #imgList li img{
+    width: 100%;
+
+}

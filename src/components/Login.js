@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LoginCss.css';
 
 const Login = () => {
     return (
         <div id='LoginContent'>
-            <h2>LOGIN</h2>
-            <div id="inputs">
+            <h2>W wedding</h2>
+            <form id="inputs">
                 <input type="text" />
                 <input type="password" />
                 <ul>
-                    <li>회원가입</li>
+                    <li><Link to="/join">회원가입</Link></li>
                     <li>ID/PW 찾기</li>
                  </ul>
                  <button>LOGIN</button>
-            </div>
+            </form>
         </div>
     );
 };
