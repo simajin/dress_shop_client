@@ -7,8 +7,8 @@ html{
   scroll-behavior: smooth;
 }
 .App {
-  -webkit-animation: chameleon 10s infinite forwards;
-  animation: chameleon 10s infinite forwards;
+  /* -webkit-animation: chameleon 10s infinite forwards;
+  animation: chameleon 10s infinite forwards; */
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;

@@ -31,26 +31,74 @@ const DetailDress = () => {
         })
         // eslint-disable-next-line
     },[])
-   
     if(!dress) return <div>로딩중...</div>
-    
     return (
         <div id='detail'>
             <div id='detailHead'>
                 <div id='detailLeft'>
                     <ul id='imgList'>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src);
+                                for(let i=0;i<detailImg.length;i++){
+                                    detailImg[i].style.filter = "none";
+                                    detailImg[i].style.border = "none";
+                                }
+                                e.target.style.filter = "grayscale(80%)";
+                                e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src)
+                            for(let i=0;i<detailImg.length;i++){
+                                detailImg[i].style.filter = "none";
+                                detailImg[i].style.border = "none";
+                            }
+                            e.target.style.filter = "grayscale(80%)";
+                            e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src)
+                            for(let i=0;i<detailImg.length;i++){
+                                detailImg[i].style.filter = "none";
+                                detailImg[i].style.border = "none";
+                            }
+                            e.target.style.filter = "grayscale(80%)";
+                            e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src)
+                            for(let i=0;i<detailImg.length;i++){
+                                detailImg[i].style.filter = "none";
+                                detailImg[i].style.border = "none";
+                            }
+                            e.target.style.filter = "grayscale(80%)";
+                            e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src)
+                            for(let i=0;i<detailImg.length;i++){
+                                detailImg[i].style.filter = "none";
+                                detailImg[i].style.border = "none";
+                            }
+                            e.target.style.filter = "grayscale(80%)";
+                            e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{
+                            setMainImg(e.target.src)
+                            for(let i=0;i<detailImg.length;i++){
+                                detailImg[i].style.filter = "none";
+                                detailImg[i].style.border = "none";
+                            }
+                            e.target.style.filter = "grayscale(80%)";
+                            e.target.style.border = "2px solid #fff"
+                            }} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
                     </ul>
                     <img src={mainImg} alt='' id='mainDetail'/>
                 </div>
                 <div id='detailRight'>
                     <div>
-                        <h2>{dress.name}</h2>
+                        <h2 onChange={()=>{
+                            
+                        }}>{dress.name}</h2>
                         <p>{dress.price.toLocaleString('ko-KR')} won</p>
                     </div>
                     <ul>

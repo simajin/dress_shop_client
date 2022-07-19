@@ -1,7 +1,7 @@
 #shop {
     width: 100%;
+    height: 100vh;
     margin: 0 auto;
-    height: 100%;
     display: flex;
     justify-content: space-around;
     padding-top: 150px;
@@ -25,14 +25,17 @@
 }
 #shopRight {
     width: 70%;
+    height: 200%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
+    padding-bottom: 200px;
     font-size: 18px;
 }
-#shopRight li {
+#shopRight #listWrap {
     width: 25%;
+    height: 33%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -44,8 +47,35 @@
     width: 100%;
     vertical-align: top;
 }
-.shopImg {
+#listWrap:hover .shopImg:nth-child(1){
+    opacity: 0;
+}
+#listWrap:hover .shopImg:nth-child(2){
+    opacity: 1;
+}
+#shopImgWrap{
+    position: relative;
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}
+.shopImg{
     overflow: hidden;
     width: 100%;
-    height: 82%;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.shopImg:nth-child(1){
+    opacity: 1;
+    transition: 1s;
+}
+.shopImg:nth-child(2){
+    opacity: 0;
+    transition: 1s;
+}
+.shopText{
+    height: 15%;
+    padding-top: 10px;
 }

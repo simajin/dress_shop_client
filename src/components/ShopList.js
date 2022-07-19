@@ -3,11 +3,18 @@ import { Link } from 'react-router-dom';
 
 const ShopList = ({dress}) => {
     return ( 
-        <li>
-            <div className='shopImg'>
-                <Link to={`/shop/${dress.id}`}>
-                    <img src={dress.imgsrc} alt="" />
-                </Link>
+        <li id='listWrap'>
+            <div id='shopImgWrap'>
+                <div className='shopImg'>
+                    <Link to={`/shop/${dress.id}`}>
+                        <img src={dress.imgsrc} alt="" />
+                    </Link>
+                </div>
+                <div className='shopImg'>
+                    <Link to={`/shop/${dress.id}`}>
+                        <img src={dress.imgsrc2} alt="" />
+                    </Link>
+                </div>
             </div>
             <div className='shopText'>
                 <Link to={`/shop/${dress.id}`}>
