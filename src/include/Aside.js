@@ -42,6 +42,7 @@ const Aside = () => {
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>
+                    <li><Link to="/shop">SEARCH</Link></li>
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>
                 </ul>
         </aside>
