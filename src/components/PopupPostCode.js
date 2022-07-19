@@ -1,6 +1,7 @@
 import React from 'react';
 import DaumPostcode from "react-daum-postcode";
 // npm install react-daum-postcode 설치하기!
+import './PopupPostCode.css';
 
 const PopupPostCode = (props) => {
     const handlePostCode = (data) => {
@@ -32,7 +33,8 @@ const PopupPostCode = (props) => {
         width: "600px",
         height: "600px",
         padding: "7px",
-        border: "2px solid #666"
+        border: "2px solid #666",
+        zIndex: 20
       };
  
     return(
