@@ -39,7 +39,7 @@ const Aside = () => {
                     <li><Link to="/Login">LOGIN</Link><br/><br/></li>
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
-                    <li>CART</li>
+                    <li><Link to="/cart">CART</Link></li>
                     <li>SEARCH</li>
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>
                 </ul>

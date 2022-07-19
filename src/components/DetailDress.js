@@ -6,10 +6,16 @@ import './DetailDress.css'
 const DetailDress = () => {
     // const navigate = useNavigate();
     // const slt = document.querySelector("#slt");
-    // const qtt = document.querySelectorAll(".qtt");
-    const qttNum = document.querySelector("#qttNum");
+    // const opQtt = document.querySelectorAll(".qtt");
+    // const qttNum = document.querySelector("#qttNum");
     const [ dress, setDress ] = useState(null);
     const { id } = useParams();             // id값 받아오기
+    //상태관리 - 이미지 변경
+    const detailImg = document.querySelectorAll(".detailImg");
+    const [ mainImg, setMainImg ] = useState('');
+    const [ qtt, setQtt] = useState('')
+    
+    
     useEffect(()=>{
         axios.get(`http://localhost:8000/dress/${id}`)
         .then(result => {
@@ -21,26 +27,30 @@ const DetailDress = () => {
             console.log(e);
             console.log("dddd")
         })
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     },[])
+   
     if(!dress) return <div>로딩중...</div>
+    
     return (
         <div id='detail'>
             <div id='detailHead'>
                 <div id='detailLeft'>
                     <ul id='imgList'>
-                        <li><img src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
-                        <li><img src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[0].src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[1].src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[2].src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[0].src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[1].src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={()=>{setMainImg(detailImg[2].src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
                     </ul>
-                    <img src={"../"+dress.imgsrc} alt='' id='mainDetail'/>
+                    <img src={mainImg} alt='' id='mainDetail'/>
                 </div>
-                <div>
-                    <h2>{dress.name}</h2>
-                    <p>{dress.price}</p>
+                <div id='detailRight'>
+                    <div>
+                        <h2>{dress.name}</h2>
+                        <p>{dress.price.toLocaleString('ko-KR')} won</p>
+                    </div>
                     <ul>
                         <li><h3>MEASUREMENTS</h3></li>
                         <li>US 2-4 / IT 32-34 / KR 44-55 / size – S <span>재고 :  {dress.size1}</span></li> 
@@ -48,26 +58,28 @@ const DetailDress = () => {
                         <li>US 10 / IT 40 / KR 66-77 / size – L <span>재고 :  {dress.size3}</span></li>
                     </ul>
                     <div>
-                        <select id='slt' onChange={()=>{
-                            qttNum.value=0;
+                        <select id='slt' onChange={ e =>{
+                            e.target.value === "1" ?  setQtt(dress.size1) : e.target.value === "2" ? setQtt(dress.size2) : setQtt(dress.size3)
                         }}>
-                            <option value="1" className='qtt'>S</option>
-                            <option value="2" className='qtt'>M</option>
-                            <option value="3" className='qtt'>L</option>
+                            <option value="1" className='opQtt'>S</option>
+                            <option value="2" className='opQtt'>M</option>
+                            <option value="3" className='opQtt'>L</option>
                         </select>
-                        <input id='qttNum' type="number" min="0" max={dress.size1} />
+                        <input id='qttNum' type="number" min="0" max={qtt} />
                         <button>ADD TO CART</button>
                     </div>
                 </div>
             </div>
             <div id='desc'>
-                <h3>DESCRIPTION</h3>
-                <p>
-                    {dress.desc}
-                </p>
-                <p>
-                    {dress.desc2}
-                </p>
+                <div id='descText'>
+                    <h3>DESCRIPTION</h3>
+                    <p>
+                        {dress.desc}
+                    </p>
+                    <p>
+                        {dress.desc2}
+                    </p>
+                </div>
                 <ul>
                     <li><img src={"../"+dress.imgsrc} alt="" /></li>
                     <li><img src={"../"+dress.imgsrc2} alt="" /></li>
