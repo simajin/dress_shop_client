@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Aside = () => {
@@ -30,8 +31,22 @@ const Aside = () => {
     function aboutEvent(){
         window.scrollTo (0,800);
     }
-    
     const searchBox = useRef();
+    const [ dress, setDress ] = useState(null);
+    const [search, setSearch] = useState('');
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/dresses`)
+        .then(result => {
+            console.log(result);
+            const resulta = result.data;    
+            setDress(resulta[0]); 
+        })   
+        .catch(e=> {
+            console.log(e);
+            console.log("dddd")
+        })
+        // eslint-disable-next-line
+    },[])
     return (
         <>
             <div id="menu_bar" onClick={menuClick} className='inner'>
@@ -51,7 +66,9 @@ const Aside = () => {
                         <ul id='searchBox' ref={searchBox}>
                             <li>
                                 <h4>Type</h4>
-                                <p>Bell line</p>
+                                <p onClick={()=>{
+                                    console.log(dress.type)
+                                }}>Bell line</p>
                                 <p>Mermaid</p>
                             </li>
                             <li>

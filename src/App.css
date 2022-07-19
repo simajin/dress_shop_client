@@ -126,12 +126,12 @@ html{
   height: 50px;
   position: fixed;
   top: 60px;
-  right: 80px;
+  right: 3%;
 }
 #menu_bar span {
   display: block;
   width: 40px;
-  height: 2px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.63);
   margin-bottom: 8px;
 }
@@ -222,6 +222,32 @@ html{
   outline: none;
   border: none;
   font-size: 45px;
+  color: #fff;
+  z-index: 100;
+}
+#goTopBtn{
+  position: absolute;
+  right: 3%;
+  bottom: 50%;
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 40px;
+  color: #fff;
+  z-index: 100;
+}
+#goBotBtn{
+  position: absolute;
+  right: 3%;
+  bottom: 30%;
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 40px;
   color: #fff;
   z-index: 100;
 }

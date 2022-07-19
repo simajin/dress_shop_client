@@ -1,12 +1,12 @@
-import React from 'react';
-import { VscInfo } from "react-icons/vsc";
+import React, { useEffect } from 'react';
+import { VscInfo, VscTriangleUp, VscTriangleDown } from "react-icons/vsc";
 
 const Footer = () => {
     let info = 1;
     function showFooter(){
         const footerMenu = document.querySelector("#hideFooter");
         const footerBtn = document.querySelector("#footerBtn");
-
+        
         if(info === 1){
             footerMenu.style.bottom ="0";
             footerMenu.style.transition = "0.5s";
@@ -23,11 +23,43 @@ const Footer = () => {
             info = 1;
         }
         return info;
-
+        
     }
+    function toTheTop(){
+        window.scrollTo(0,0);
+    }
+    function toTheBot(){
+        window.scrollTo(0,document.body.scrollHeight);
+    }
+    useEffect(()=>{
+        window.addEventListener('scroll',()=>{
+            const footerMenu = document.querySelector("#hideFooter");
+            const footerBtn = document.querySelector("#footerBtn");
+            const scrollHeight = document.body.scrollHeight-window.innerHeight
+            console.log(window.scrollY)
+            if(window.scrollY === scrollHeight){
+                footerMenu.style.bottom = "0";
+                footerMenu.style.transition = "0.5s";
+                setTimeout(()=>{
+                    footerBtn.style.color = "#666";
+                },200)
+                info = 0;
+            }else{
+                footerMenu.style.bottom = "-150px";
+                footerMenu.style.transition = "0.5s";
+                setTimeout(()=>{
+                    footerBtn.style.color = "#fff";
+                },200)
+                info = 1;
+            }
+            return info;
+        })
+    },[])
     return (
         <div id="footer">
             <button id="footerBtn" onClick={showFooter}><VscInfo/></button>
+            <button id="goTopBtn" onClick={toTheTop}><VscTriangleUp/></button>
+            <button id="goBotBtn" onClick={toTheBot}><VscTriangleDown/></button>
             <div id='hideFooter'>
                 <div id='footerInner'>
                     <p>2022 © W Wedding. All Rights Reserved.</p>
