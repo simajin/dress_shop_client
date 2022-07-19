@@ -62,6 +62,19 @@ const Join = () => {
                 c_phone3:""
             })
         }
+        //유효성검사 - 글자수 제한, 유의미한 데이터인지 파악 등
+        //1. id의 길이(4-10자 입력)
+        if(formData.c_id.length<4 || formData.c_id.length>=11) alert("ID가 양식에 적합하지 않습니다.");
+        //2. 비밀번호의 최소길이 4글자 이상
+        else if(formData.c_password.length<4 || formData.c_pwch.length<4) alert("비밀번호는 4자 이상 입력해주세요.");
+        //3. 비밀번호와 비밀번호확인이 일치하는지
+        else if(formData.c_password !== formData.c_pwch) alert("비밀번호가 일치하지 않습니다.");
+        //4. 전화번호 phone은 3글자 / phone2, phone3은 4글자
+        else if(formData.c_phone.length>=4 || formData.c_phone2.length>=5 || formData.c_phone3.length>=5 ) alert("전화번호 양식에 적합하지 않습니다.");
+        //중복아이디 체크
+        // else {
+        //     if (formData.c_id===)
+        // }
         //input에 값이 있는지 체크하고
         if(formData.c_id !== "" && formData.c_password !== "" && formData.c_pwch !== "" && formData.c_name !== "" && formData.c_gender !== "" &&
         formData.c_phone !== "" && formData.c_add !== "" && formData.c_adddetail !=="" && formData.c_email !==""){
@@ -88,7 +101,7 @@ const Join = () => {
                         <tr className='tableTr'>
                             <td>아이디 </td>
                             {/* useState로 값을 주고 있는데 그걸 바꾸려면 onChange를 써서 바꿔줘야함! -> onChange 하나하나 다 걸어주기! */}
-                            <td><i className="material-icons">account_circle</i><input type="text" name='c_id' placeholder="ID 4~19words" value={formData.c_id} onChange={onChange} /></td>
+                            <td><i className="material-icons">account_circle</i><input type="text" name='c_id' placeholder="ID 4~10words" value={formData.c_id} onChange={onChange} /></td>
                         </tr>
                         <tr className='tableTr'>
                             <td>비밀번호 </td>

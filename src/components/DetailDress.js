@@ -11,7 +11,7 @@ const DetailDress = () => {
     const [ dress, setDress ] = useState(null);
     const { id } = useParams();             // id값 받아오기
     //상태관리 - 이미지 변경
-    // const detailImg = document.querySelectorAll(".detailImg");
+    const detailImg = document.querySelectorAll(".detailImg");
     const [ mainImg, setMainImg ] = useState('');
     const [ qtt, setQtt] = useState('')
     
