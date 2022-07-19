@@ -11,6 +11,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
+import Search from 'antd/lib/transfer/search';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/shop' element={<Shop/>} />
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/shop' element={<Search/>} />
       </Routes>
       <Footer/>
     </div>

@@ -24,10 +24,12 @@ const Aside = () => {
         }, 300);
 
     }
+
     //어바웃 클릭이벤트
     function aboutEvent(){
         window.scrollTo (0,800);
     }
+
     return (
         <>
             <div id="menu_bar" onClick={menuClick} className='inner'>
@@ -40,7 +42,6 @@ const Aside = () => {
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>
-                    <li>SEARCH</li>
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>
                 </ul>
         </aside>
