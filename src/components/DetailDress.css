@@ -3,10 +3,17 @@
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
+    padding-top: 150px;
+    font-family: 'Playfair Display','Gowun Dodum',serif;
+    color: #fff;
+    text-shadow: 1px 1px 3px #888;
 }
 #detailHead {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 200px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.63);
 }
 #imgList img{
     width: 100%;
@@ -14,18 +21,108 @@
 }
 #detailHead #detailLeft {
     display: flex;
+    width: 48%;
 }
 #detailLeft #imgList {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
-    width: 10%;
-    height: 500px;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
 }
 #detailLeft #imgList li{
     width: 100%;
+    height: 75px;
 }
 #detailLeft #imgList li img{
     width: 100%;
-
+    height: 100%;
+}
+#mainDetail {
+    width: 90%;
+    height: 100%;
+    padding-left: 16px;
+}
+#detailRight {
+    width: 48%;
+    /* padding-left: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 0 16px 50px;
+}
+#detailRight h2 {
+    text-align: left;
+    font-size: 40px;
+}
+#detailRight p {
+    font-size: 32px;
+}
+#detailRight ul {
+    text-align: left;
+    line-height: 1.6;
+}
+#detailRight ul li {
+    font-size: 20px;
+}
+#detailRight ul h3 {
+    padding-bottom: 16px;
+    font-size: 26px;
+    padding-left: 15%;
+}
+#detailRight div select {
+    width: 50px;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    background: #eee;
+    box-shadow: 1px 1px 3px #666;
+}
+#detailRight div input {
+    width: 180px;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    padding-left: 150px;
+}
+#detailRight div button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 3px #666;
+}
+#desc {
+    padding-top: 50px;
+    width: 100%;
+    padding-bottom: 200px;
+}
+#descText {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.8;
+    padding-bottom: 70px;
+}
+#descText h3 {
+    padding-bottom: 40px;
+}
+#descText p {
+    letter-spacing: 1.2px;
+}
+#descText p:nth-child(2) {
+    padding-bottom: 20px;
+}
+#desc ul {
+    width: 70%;
+    margin: 0 auto;
+}
+#desc ul li {
+    padding-bottom: 30px;
+}
+#desc ul img {
+    width: 100%;
 }
