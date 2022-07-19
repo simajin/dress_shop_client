@@ -10,7 +10,7 @@ const Login = () => {
                 <input type="text" />
                 <input type="password" />
                 <ul>
-                    <li><Link to="/join">회원가입</Link></li>
+                    <li><Link to="/register">회원가입</Link></li>
                     <li>ID/PW 찾기</li>
                  </ul>
                  <button>LOGIN</button>
