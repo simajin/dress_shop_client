@@ -19,6 +19,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+#LoginContent #inputs i:nth-child(1) {
+    color: #d4989f;
+    position: absolute;
+    top: 5%;
+    left: 41.5%;
+}
+#LoginContent #inputs i:nth-child(3) {
+    color: #d4989f;
+    position: absolute;
+    top: 34%;
+    left: 41.5%;
 }
 #LoginContent input {
     border: none;
@@ -27,7 +40,7 @@
     width: 350px;
     height: 50px;
     background: rgba(255, 255, 255, 0.63);
-    padding-left: 10px;
+    padding-left: 50px;
 }
 #LoginContent ul {
     display: flex;
