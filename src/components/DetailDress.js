@@ -21,7 +21,9 @@ const DetailDress = () => {
         .then(result => {
             console.log(result);
             const resulta = result.data;
-            setDress(resulta[0]);  
+            setDress(resulta[0]); 
+            setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
+            setQtt(resulta[0].size1); 
         })   
         .catch(e=> {
             console.log(e);
@@ -37,12 +39,12 @@ const DetailDress = () => {
             <div id='detailHead'>
                 <div id='detailLeft'>
                     <ul id='imgList'>
-                        <li><img onClick={()=>{setMainImg(detailImg[0].src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img onClick={()=>{setMainImg(detailImg[1].src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img onClick={()=>{setMainImg(detailImg[2].src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
-                        <li><img onClick={()=>{setMainImg(detailImg[0].src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
-                        <li><img onClick={()=>{setMainImg(detailImg[1].src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
-                        <li><img onClick={()=>{setMainImg(detailImg[2].src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                        <li><img onClick={(e)=>{setMainImg(e.target.src)}} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
                     </ul>
                     <img src={mainImg} alt='' id='mainDetail'/>
                 </div>
@@ -60,6 +62,7 @@ const DetailDress = () => {
                     <div>
                         <select id='slt' onChange={ e =>{
                             e.target.value === "1" ?  setQtt(dress.size1) : e.target.value === "2" ? setQtt(dress.size2) : setQtt(dress.size3)
+                            console.log(qtt)
                         }}>
                             <option value="1" className='opQtt'>S</option>
                             <option value="2" className='opQtt'>M</option>

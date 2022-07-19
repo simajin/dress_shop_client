@@ -28,11 +28,8 @@ const Shop = (props) => {
             {/* <form onSubmit={={e=></div>onSearch(e)}}> */}
                 <ul id='shopLeft'>
                     <li>SIGNATURE</li>
-                    <li>Belline</li>
+                    <li>Bellline</li>
                     <li>Mermaid</li>
-                    <li><p>SEARCH</p></li>
-                    <li><input id='searchInput' type='text' /></li>
-                    <li><button id='searchBtn' type='submit'>검색</button></li>
                 </ul>
             {/* </form> */}
             <ul id='shopRight'>
