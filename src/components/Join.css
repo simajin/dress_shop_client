@@ -1,28 +1,81 @@
-#joinForm h2{
-    text-align: center;
-    margin-bottom: 42px;
-    font-size: 40px;
-}
-#joinForm{
-    width: 40%;
+#joinForm {
+    width: 30%;
     height: 100vh;
     background: inherit;
     display: flex;
     flex-flow: column;
     justify-content: center;
-margin: 0 auto;
-    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto;
+    /* color: rgba(255, 255, 255, 0.9); */
+    color: #d3848d;
     font-size: 18px;
     font-family: 'Playfair Display','Gowun Dodum', serif;
+} 
+#joinForm > div {
+    border: 1px solid rgba(167, 129, 129, 0.945);
+    box-shadow: 1px 1px 3px rgba(167, 129, 129, 0.945);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    height: 70%;
 }
-#joinForm input{ 
-    width: 100%;
+#joinForm h2 {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 42px;
+    font-size: 40px;
+}
+#joinForm input { 
+    width: 80%;
     height: 30px;
     padding: 0 14px;
     border: none;
     outline: none;
-    background: rgba(255, 255, 255, 0.63);
+    /* background: rgba(255, 255, 255, 0.63); */
+    background: #f7dadc;
     border-radius: 4px;
+    padding-left: 40px;
+    margin-left: 10px;
+}
+#joinTable td:nth-child(2){
+    position: relative;
+}
+/* #joinTable td:nth-child(2)::before {
+    content: ": ";
+} */
+#joinTable .phoneNum input {
+    padding-left: 25px;
+}
+/* #joinTable tableGender input {
+    margin-left: 20px;
+} */
+#joinTable .tableAdd {
+    /* height: 80px; */
+    margin: 0 auto;
+}
+#joinTable .tableAdd input:nth-child(1) {
+    width: 100%;
+    /* position: absolute; */
+}
+#joinTable .tableAdd input:nth-child(2) {
+    width: 100%;
+    margin-top: 5px;
+    /* position: absolute;
+    top: 60%;
+    transform: translateY(-50%); */
+}
+#joinTable .tableAdd button {
+    /* position: absolute;
+    bottom: -50%;
+    margin-bottom: 50px; */
+    width: 110px;
+    height: 30px;
+    font-size: 13px;
+}
+#joinForm i {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
 }
 #joinForm .gender {
     width: 10%;
@@ -36,14 +89,17 @@ margin: 0 auto;
     width: 28%;
 }
 #joinTable{
-    width: 100%;
+    /* width: 100%; */
+    width: 70%;
     height: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
-#joinTable tableTr{
-    margin: 40px 0;
+#joinTable .tableTr{
+    position: relative;
 }
 #joinTable td:nth-child(1){
-    width: 20%;
+    width: 26%;
 }
 #joinTable button{
     width: 100px;
@@ -56,6 +112,13 @@ margin: 0 auto;
     margin: 14px;
     font-size: 16px;
 }
+.tableSubmit td {
+    padding-top: 30px;   
+}
 #joinTable .tableSubmit{
     text-align: center;
+}
+#tableAdd1 {
+    position: absolute;
+    top: 2%;
 }
