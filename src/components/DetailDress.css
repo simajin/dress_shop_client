@@ -91,7 +91,7 @@
     margin-right: 10px;
     padding-left: 150px;
 }
-#detailRight div button {
+#detailRight div button:nth-child(3) {
     width: 140px;
     height: 40px;
     border: none;
@@ -128,4 +128,34 @@
 }
 #desc ul img {
     width: 100%;
+}
+/* 수정버튼 */
+#editBtn {
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #eecccf;
+    width: 100px;
+    height: 40px;
+    color: #d4989f;
+    box-shadow: 1px 1px 3px #666;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 30px 30px 15px 0;
+}
+/* 삭제버튼 */
+#deleteBtn {
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #eecccf;
+    width: 100px;
+    height: 40px;
+    color: #d4989f;
+    box-shadow: 1px 1px 3px #666;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
 }

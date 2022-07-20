@@ -28,7 +28,7 @@ const Shop = (props) => {
         <div id="shop">
             {/* <form onSubmit={={e=></div>onSearch(e)}}> */}
                 <ul id='shopLeft'>
-                    <li id="upProduct"><Link to={`/shop/upload`}>Upload Product</Link></li>
+                    <li id="upProduct"><Link to={`/upload`}>Upload Product</Link></li>
                     <li>SIGNATURE</li>
                     <li>Bellline</li>
                     <li>Mermaid</li>
