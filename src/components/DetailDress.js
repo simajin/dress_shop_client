@@ -125,6 +125,10 @@ const DetailDress = () => {
                         </select>
                         <input id='qttNum' type="number" min="0" max={qtt} />
                         <button>ADD TO CART</button>
+                        <div>
+                            <button id='editBtn'>EDIT</button>
+                            <button id='deleteBtn'>DELETE</button>
+                        </div>
                     </div>
                 </div>
             </div>
