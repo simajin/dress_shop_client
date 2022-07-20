@@ -11,9 +11,10 @@ import ScrollToTop from './components/ScrollToTop';
 import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
-import Search from 'antd/lib/transfer/search';
+import ShopSearch from './components/ShopSearch';
 
 function App() {
+
   return (
     <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
@@ -28,7 +29,7 @@ function App() {
         <Route path='/shop' element={<Shop/>} />
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
-        <Route path='/shop' element={<Search/>} />
+        <Route path='/shop/:type' element={<ShopSearch/>} />
       </Routes>
       <Footer/>
     </div>

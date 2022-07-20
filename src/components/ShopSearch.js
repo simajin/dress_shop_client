@@ -2,15 +2,17 @@ import React, { useEffect, useState, useRef } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
+import { useParams } from 'react-router-dom';
 
 
-const Shop = ({belline}) => {
+const ShopSearch = ({belline}) => {
     //mysql로 데이터 불러오기
     const [ dresses, setDresses ] = useState([]);
     const [ alldresses, setallDresses ] = useState([]);
+    const { type } = useParams();
     // const [ dressAll, setDressAll ] = useState([]);
     useEffect(()=>{ 
-        axios.get("http://localhost:8000/dresses")
+        axios.get(`http://localhost:8000/dress/${type}`)
         .then((result)=>{
             const dresses = result.data;
             console.log(dresses)
@@ -129,4 +131,4 @@ const Shop = ({belline}) => {
     );
 };
 
-export default Shop;
+export default ShopSearch;
