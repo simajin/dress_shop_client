@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
+import { Link } from 'react-router-dom';
 
 const Shop = (props) => {
     //mysql로 데이터 불러오기
@@ -27,6 +28,7 @@ const Shop = (props) => {
         <div id="shop">
             {/* <form onSubmit={={e=></div>onSearch(e)}}> */}
                 <ul id='shopLeft'>
+                    <li id="upProduct"><Link to={`/shop/upload`}>Upload Product</Link></li>
                     <li>SIGNATURE</li>
                     <li>Bellline</li>
                     <li>Mermaid</li>
