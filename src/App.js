@@ -12,6 +12,7 @@ import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
 import Search from 'antd/lib/transfer/search';
+import UploadProduct from './components/UploadProduct';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/shop' element={<Search/>} />
+        <Route path='/shop/upload' element={<UploadProduct/>} />
       </Routes>
       <Footer/>
     </div>
