@@ -33,7 +33,7 @@ const Aside = () => {
     }
     const searchBox = useRef();
     const [ dress, setDress ] = useState(null);
-    const [search, setSearch] = useState('');
+    // const [search, setSearch] = useState('');
     useEffect(()=>{
         axios.get(`http://localhost:8000/dresses`)
         .then(result => {
