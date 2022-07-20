@@ -40,7 +40,7 @@ const Join = () => {
         c_email: ""
     })
     //input - onChange 이벤트
-    const onChange = (e) => {
+    const onChange = async (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
