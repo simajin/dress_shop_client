@@ -48,20 +48,20 @@ const Aside = () => {
             showMenu = false;
         }
     }
+
     // 카테고리
-    useEffect(()=>{
-        axios.get(`http://localhost:8000/dresses`)
-        .then(result => {
-            console.log(result);
-            const resulta = result.data;    
-            setDress(resulta[0].type); 
-        })   
-        .catch(e=> {
-            console.log(e);
-            console.log("dddd")
-        })
-        // eslint-disable-next-line
-    },[])
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:8000/dresses`)
+    //     .then(result => {
+    //         console.log(result);
+    //         const resulta = result.data;
+    //         setDress(resulta[0].type); 
+    //     })   
+    //     .catch(e=> {
+    //         console.log(e);
+    //     })
+    //     // eslint-disable-next-line
+    // },[])
     
     
     return (
@@ -76,12 +76,13 @@ const Aside = () => {
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>
-                    <li id='searchText'>
-                        <p  onClick={showSearchMenu}><Link to="/shop">SEARCH</Link></p>
-                        <ul id='searchBox' ref={searchBox}>
+                    <li><Link to="/shop">SEARCH</Link></li>
+                    {/* <li id='searchText'> */}
+                        {/* <p  onClick={showSearchMenu}><Link to="/shopSearch">SEARCH</Link></p> */}
+                        {/* <ul id='searchBox' ref={searchBox}>
                             <li>
                                 <h4>Type</h4>
-                                <p id="belline"><Link to={"/shop/"+dress}>Bell line</Link></p>
+                                <p><Link to={"/shop/"+dress}>Bell line</Link></p>
                                 <p >Mermaid</p>
                             </li>
                             <li>
@@ -96,8 +97,8 @@ const Aside = () => {
                                 <p>FW21</p>
                                 <p>SS21</p>
                             </li>
-                        </ul>
-                    </li>
+                        </ul> */}
+                    {/* </li> */}
                     <li><button className='barBtn' onClick={menuClose}>X</button></li>
                 </ul>
         </aside>

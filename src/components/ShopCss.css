@@ -1,84 +1,106 @@
 #shop {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding-top: 150px;
     font-family: 'Playfair Display', serif;
     color: #fff;
     text-shadow: 1px 1px 3px #888;
 }
 #shopLeft {
-    width: 100px;
+    width: 22.5%;
+    height: 100%;
     color: #fff;
     font-size: 22px;
-    /* padding-top: 100px;
-    padding-left: 50px; */
-    position: fixed;
-    top: 30%;
-    left: 3%;
+    padding: 100px 60px;
 }
-#shopLeft li {
+#shopLeft ul li {
     padding-bottom: 10px;
-
 }
 #shopRight {
-    width: 70%;
-    height: 200%;
+    width: 55%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    /* margin-bottom: 200px; */
-    padding-bottom: 200px;
     font-size: 18px;
 }
-#shopRight #listWrap {
-    width: 25%;
-    height: 33%;
+#shopRight .listWrap {
+    width: 33.3333%;
+    height: 100%;
     display: flex;
     flex-flow: column;
-    justify-content: space-around;
 }
-#shopRight li:not(:nth-child(3n)) {
-    margin-right: 18px;
+#shopRight .listWrap img {
+    width: 95%;
 }
-#shopRight li img {
-    width: 100%;
-    vertical-align: top;
+#shopRight .listWrap:last-child {
+    margin-bottom: 300px;
 }
-#listWrap:hover .shopImg:nth-child(1){
+.listWrap .shopText {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.listWrap:hover .shopImg1 {
     opacity: 0;
 }
-#listWrap:hover .shopImg:nth-child(2){
+.listWrap:hover .shopImg2 {
     opacity: 1;
 }
-#shopImgWrap{
+.shopImgWrap {
     position: relative;
     width: 100%;
-    height: 85%;
-    overflow: hidden;
+    height: 100%;
 }
-.shopImg{
-    overflow: hidden;
+.shopImg1 {
     width: 100%;
-    height:100%;
     position: absolute;
-    top: 0;
-    left: 0;
-}
-.shopImg:nth-child(1){
+    height: 100%;
+    overflow: hidden;
     opacity: 1;
     transition: 1s;
 }
-.shopImg:nth-child(2){
+.shopImg2 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     opacity: 0;
     transition: 1s;
 }
-.shopText{
-    height: 15%;
-    padding-top: 10px;
+
+/* search ! */
+#shopLeft #shopSearch {
+    margin-top: 10px;
 }
+#shopLeft #shopSearch {
+    opacity: 0;
+}
+#shopLeft #shopSearch #shopType {
+    display: flex;
+}
+#shopLeft #shopSearch #shopType li {
+    font-size: 18px;
+    padding-right: 12px;
+}
+#shopLeft #shopSearch #shopSize {
+    display: flex;
+}
+#shopLeft #shopSearch #shopSize li {
+    font-size: 18px;
+    padding-right: 12px;
+}
+#shopLeft #shopSearch #shopSeason {
+    display: flex;
+}
+#shopLeft #shopSearch #shopSeason li {
+    font-size: 18px;
+    padding-right: 12px;
+}
+#shopLeft #shopSearch .search {
+    width: 30%;
+}
+
 /* Upload Product 탭 */
 #upProduct {
     text-decoration: underline;

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const ShopList = ({dress}) => {
     return ( 
-        <li id='listWrap'>
-            <div id='shopImgWrap'>
-                <div className='shopImg'>
+        <li className='listWrap'>
+            <div className='shopImgWrap'>
+                <div className='shopImg1'>
                     <Link to={`/shop/${dress.id}`}>
                         <img src={dress.imgsrc} alt="" />
                     </Link>
                 </div>
-                <div className='shopImg'>
+                <div className='shopImg2'>
                     <Link to={`/shop/${dress.id}`}>
                         <img src={dress.imgsrc2} alt="" />
                     </Link>
@@ -21,8 +21,7 @@ const ShopList = ({dress}) => {
                 <p>{dress.name}</p>
                 <span>{dress.price.toLocaleString('ko-KR')} won</span>
                 </Link>
-            </div>
-            
+            </div>           
         </li>
     );
 };

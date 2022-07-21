@@ -11,7 +11,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
-import ShopSearch from './components/ShopSearch';
+// import ShopSearch from './components/ShopSearch';
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path='/shop' element={<Shop/>} />
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
-        <Route path='/shop/:type' element={<ShopSearch/>} />
+        {/* <Route path='/shopSearch/:type' element={<ShopSearch/>} /> */}
       </Routes>
       <Footer/>
     </div>
