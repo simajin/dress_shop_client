@@ -23,16 +23,18 @@ const Login = () => {
     //로그인 버튼
     const login = () => {
         axios.post('http://localhost:8000/login', {
-            userid: userName,
-            pw: userPassword
+            username: userName,
+            userpassword: userPassword
+            // userid: userName,
+            // pw: userPassword
         })
-        .then(response=>{
-            console.log(response);
+        .then(res =>{console.log(res)})
+        .catch(e=>{
+            console.log(e);
         })
     }
-    // useEffect(()=>{
 
-    // })
+
 
     // const [inputId, setInputId] = useState('');     //ID
     // const [inputPw, setInputPw] = useState('');     //PW
@@ -70,7 +72,7 @@ const Login = () => {
             <form id="inputs">
                 <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='c_id'
                 onClick={onChangeId}/>
-                <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='c_pw'
+                <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='c_password'
                 onClick={onChangePw}/>
                 {/* <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='input_id' value={inputId} onChange={onChangeId}/>
                 <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='input_pw' value={inputPw} onChange={onChangePw} /> */}
