@@ -44,7 +44,6 @@ const UploadProduct = () => {
         // extractFilename();
         // updateFilename();
         setFormData({
-            ...e,
             ...formData,
             product : {
                 [name] : value
@@ -53,19 +52,17 @@ const UploadProduct = () => {
             // [name[0].value] : value.replace("C:\\fakepath\\","images/"),
             // [formData.c_pic1]: value.replace("C:\\fakepath\\","images/"),
         })
-        console.log(formData)
     }
     const onChangeImg = (e)=>{
         const { name, value } = e.target;
         setFormData({
-            ...e,
+            ...formData,
             productImg : {
                 ...e.productImg,
                 // c_pic1 : 'images/'
                 [name] :value.replace("C:\\fakepath\\","images/")
             }
         })
-        console.log(formData)
     }
     //이미지 onChange 이벤트
     // const onChangeImg = (e) => {
@@ -94,7 +91,7 @@ const UploadProduct = () => {
         console.log(formData);
 
         // 가격 숫자인지 체크
-        if(isNaN(formData.c_price)){
+        if(isNaN((formData.c_price))){
             alert("가격은 숫자만 입력해주세요.");
             setFormData({
                 ...formData,
@@ -120,7 +117,9 @@ const UploadProduct = () => {
             })
         }
     }
-
+    const check = ()=>{
+        console.log(formData);
+    }
     return (
     <div>
         <div id='uploadBox'>
@@ -133,7 +132,7 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="price">가격</label>
-                        <input type="text" name='c_price' min={0} value={formData.c_price} onChange={onChange}/>
+                        <input type="number" name='c_price' min={0} value={formData.c_price} onChange={onChange}/>
                     </li>
                     <li>
                         <label htmlFor="size1">사이즈S</label>
@@ -177,7 +176,7 @@ const UploadProduct = () => {
                         <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChangeImg} />
                     </li>
                     <li id='uploadBtn'>
-                        <button type='submit'>등록</button>
+                        <button type='submit' onClick={check}>등록</button>
                         <button type='reset'>취소</button>
                     </li>
                 </ul>
