@@ -12,6 +12,7 @@ import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
 import ShopSearch from './components/ShopSearch';
+import UploadProduct from './components/UploadProduct';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path='/shop' element={<Shop/>} />
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/upload' element={<UploadProduct/>} />
         <Route path='/shop/:type' element={<ShopSearch/>} />
       </Routes>
       <Footer/>

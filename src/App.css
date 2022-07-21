@@ -238,7 +238,7 @@ html{
   outline: none;
   font-size: 40px;
   color: #fff;
-  z-index: 1000;
+  z-index: 20;
 }
 #goBotBtn{
   position: absolute;
@@ -251,7 +251,7 @@ html{
   outline: none;
   font-size: 40px;
   color: #fff;
-  z-index: 1000;
+  z-index: 20;
 }
 /* 검색  */
 #shopLeft p {

@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+// import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
@@ -36,6 +37,7 @@ const Shop = ({belline}) => {
                     <li id='sig' onClick={tSig}>SIGNATURE</li>
                     <li id='bLine' onClick={tBelline}>Bellline</li>
                     <li id='mMaid' onClick={tMermaid}>Mermaid</li>
+                    <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
                 </ul>
             {/* </form> */}
             <ul id='shopRight'>

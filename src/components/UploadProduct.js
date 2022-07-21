@@ -18,16 +18,66 @@ const UploadProduct = () => {
         c_pic3: ""
     })
     //onChange 이벤트
+    // function extractFilename(path) {
+    //     if (path.substr(0, 12) === "C:\\fakepath\\")
+    //       return path.substr(12); // modern browser
+    //     var x;
+    //     x = path.lastIndexOf('/');
+    //     if (x >= 0)         // Unix-based path
+    //       return path.substr(x+1);
+    //     x = path.lastIndexOf('\\');
+    //     if (x >= 0)         // Windows-based path
+    //       return path.substr(x+1);
+    //     return path;        // just the filename
+    // }
+    // function updateFilename(path) {
+    //     var name = extractFilename(path);
+    //     document.getElementById('filename').textContent = name;
+    // }
     const onChange = (e) => {
+        // const input = document.querySelector("input[type=file]");
         const { name, value } = e.target;
+        // extractFilename();
+        // updateFilename();
         setFormData({
             ...formData,
-            [name]: value
+            // [name[0].value] : value.replace("C:\\fakepath\\","images/"),
+            [name] : value,
+            // [name] : value.replace("C:\\fakepath\\","images/"),
+            // [formData.c_pic1]: value.replace("C:\\fakepath\\","images/"),
         })
+        // console.log([name[0]])
+        // console.log([name[1]])
+        // console.log([name[2]])
+        // console.log([name[3]])
+        // console.log([name[4]])
+        // console.log([name[5]])
+        // console.log([formData.c_pic1])
     }
+    //이미지 onChange 이벤트
+    // const onChangeImg = (e) => {
+    //     // const  file = e.target.files[0];
+    //     // const reader = new FileReader();
+    //     // reader.onload = (e) => {
+    //     //     const fileData = e.target.result;
+    
+    //     //     const somePath = 'images/';
+    
+    //     //     file.writeFile(somePath, fileData);
+    //     //     file.OpenFile(somePath)
+    //     // }
+    //     const { name, value } = e.target;
+    //     setFormData({
+    //         ...formData,
+    //         [name]: value
+    //     })
+    //     // const file = e.target.files[0];
+    //     // input.value = file.value.replace("C:\\fakepath\\", "/images/");
+    // }
     //폼 onSubmit 이벤트
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log("상품등록")
         console.log(formData);
 
         // 가격 숫자인지 체크
@@ -47,7 +97,7 @@ const UploadProduct = () => {
         }
         //등록함수
         function uploadDress(){
-            axios.post('http://localhost:8000/upload', formData)
+            axios.post('http://localhost:8000/uploadDress', formData)
             .then(res=>{
                 console.log(res);
                 // navigate('/shop');
@@ -87,8 +137,8 @@ const UploadProduct = () => {
                     <li>
                         <label htmlFor="name">type</label>
                         <select name='name'>
-                            <option name="c_type" value="Belline" onChange={onChange}>bellline</option>
-                            <option name="c_type" value="Mermaid" onChange={onChange}>mermaid</option>
+                            <option name="c_type" value="belline" onChange={onChange}>bellline</option>
+                            <option name="c_type" value="mermaid" onChange={onChange}>mermaid</option>
                         </select>
                     </li>
                     <li>
@@ -102,6 +152,8 @@ const UploadProduct = () => {
                     <li>
                         <label htmlFor="pic1">사진1</label>
                         <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChange} />
+                        {/* <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
+                        <input type="hidden" name="real_path" value={formData.c_pic1} id='real_path' /> */}
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
