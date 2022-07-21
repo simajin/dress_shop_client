@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const UploadProduct = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [ formData, setFormData ] = useState({
         c_name: "",
         c_price: "",
@@ -98,7 +98,7 @@ const UploadProduct = () => {
             axios.post('http://localhost:8000/uploadDress', (formData))
             .then(res=>{
                 console.log(res);
-                // navigate('/shop');
+                navigate('/shop');
             })
             .catch(e=>{
                 console.log(e);
