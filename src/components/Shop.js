@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
+import { Link } from 'react-router-dom';
 
 
 const Shop = ({belline}) => {

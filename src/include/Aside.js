@@ -48,7 +48,6 @@ const Aside = () => {
             showMenu = false;
         }
     }
-
     // 카테고리
     useEffect(()=>{
         axios.get(`http://localhost:8000/dresses`)

@@ -14,7 +14,7 @@ const DetailDress = () => {
     const detailImg = document.querySelectorAll(".detailImg");
     const [ mainImg, setMainImg ] = useState('');
     const [ qtt, setQtt] = useState('')
-    
+    const [ currentImg, setCurrentImg ] = useState(0);
     
     useEffect(()=>{
         axios.get(`http://localhost:8000/dress/${id}`)
@@ -32,6 +32,13 @@ const DetailDress = () => {
         // eslint-disable-next-line
     },[])
     if(!dress) return <div>로딩중...</div>
+    setInterval(() => {
+        if(currentImg === 6){
+            setCurrentImg(0);
+        }else if(currentImg<6){
+            setCurrentImg((current)=>current+1)
+        }
+    }, 4000);
     return (
         <div id='detail'>
             <div id='detailHead'>
@@ -118,6 +125,10 @@ const DetailDress = () => {
                         </select>
                         <input id='qttNum' type="number" min="0" max={qtt} />
                         <button>ADD TO CART</button>
+                        <div>
+                            <button id='editBtn'>EDIT</button>
+                            <button id='deleteBtn'>DELETE</button>
+                        </div>
                     </div>
                 </div>
             </div>
