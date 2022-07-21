@@ -5,21 +5,16 @@ import React, { useState } from 'react';
 const UploadProduct = () => {
     // const navigate = useNavigate();
     const [ formData, setFormData ] = useState({
-        product : {
-            c_name: "",
-            c_price: "",
-            c_size1: "",
-            c_size2: "",
-            c_size3: "",
-            c_type: "",
-            c_desc1: "",
-            c_desc2: "",
-        },
-        productImg: {
-            c_pic1: "",
-            c_pic2: "",
-            c_pic3: ""
-        }
+        c_name: "",
+        c_price: "",
+        c_size1: "",
+        c_size2: "",
+        c_size3: "",
+        c_type: "",
+        c_desc1: "",
+        c_pic1: "",
+        c_pic2: "",
+        c_pic3: ""
     })
     //onChange 이벤트
     // function extractFilename(path) {
@@ -45,10 +40,7 @@ const UploadProduct = () => {
         // updateFilename();
         setFormData({
             ...formData,
-            product : {
-                [name] : value
-            },
-            
+            [name] : value
             // [name[0].value] : value.replace("C:\\fakepath\\","images/"),
             // [formData.c_pic1]: value.replace("C:\\fakepath\\","images/"),
         })
@@ -57,11 +49,7 @@ const UploadProduct = () => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            productImg : {
-                ...e.productImg,
-                // c_pic1 : 'images/'
-                [name] :value.replace("C:\\fakepath\\","images/")
-            }
+            [name] :value.replace("C:\\fakepath\\","images/")
         })
     }
     //이미지 onChange 이벤트
@@ -91,11 +79,11 @@ const UploadProduct = () => {
         console.log(formData);
 
         // 가격 숫자인지 체크
-        if(isNaN((formData.c_price))){
+        if(isNaN(+formData.c_price)){
             alert("가격은 숫자만 입력해주세요.");
             setFormData({
                 ...formData,
-                c_price:""
+                c_price:+''
             })
         }
         if(formData.c_name !== "" && formData.c_price !== "" &&
@@ -107,7 +95,7 @@ const UploadProduct = () => {
         }
         //등록함수
         function uploadDress(){
-            axios.post('http://localhost:8000/uploadDress', formData)
+            axios.post('http://localhost:8000/uploadDress', (formData))
             .then(res=>{
                 console.log(res);
                 // navigate('/shop');
@@ -148,9 +136,9 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="name">type</label>
-                        <select name='name'>
-                            <option name="c_type" value="belline" onChange={onChange}>bellline</option>
-                            <option name="c_type" value="mermaid" onChange={onChange}>mermaid</option>
+                        <select name='c_type' onChange={onChange}>
+                            <option name="c_type" value="belline">bellline</option>
+                            <option name="c_type" value="mermaid">mermaid</option>
                         </select>
                     </li>
                     <li>
@@ -163,17 +151,17 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} />
+                        <input type="file" name="c_pic1" onChange={onChangeImg} />
                         {/* <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
                         <input type="hidden" name="real_path" value={formData.c_pic1} id='real_path' /> */}
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic2" value={formData.c_pic2} onChange={onChangeImg} />
+                        <input type="file" name="c_pic2" onChange={onChangeImg} />
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChangeImg} />
+                        <input type="file" name="c_pic3" onChange={onChangeImg} />
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit' onClick={check}>등록</button>
