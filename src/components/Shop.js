@@ -1,4 +1,3 @@
-// import React, { useEffect, useState, useRef } from 'react';
 import React, { useEffect, useState } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
@@ -6,7 +5,7 @@ import ShopList from './ShopList';
 import { Link } from 'react-router-dom';
 
 
-const Shop = ({belline}) => {
+const Shop = () => {
     //mysql로 데이터 불러오기
     const [ dresses, setDresses ] = useState([]);
     const [ alldresses, setallDresses ] = useState([]);
@@ -23,23 +22,72 @@ const Shop = ({belline}) => {
             console.log(e);
         })
     },[])
-        //카테고리
-        function tBelline(){ setDresses(alldresses.filter(e=>e.type==="belline"))}
-        function tMermaid(){ setDresses(alldresses.filter(e=>e.type==="mermaid"))}
-        function tSig(){ setDresses(alldresses.filter(e=>e.type))}
+
+    // 카테고리
+    function tBelline(){ setDresses(alldresses.filter(e=>e.type==="belline")) }
+    function tMermaid(){ setDresses(alldresses.filter(e=>e.type==="mermaid")) }
+    function tSig(){ setDresses(alldresses.filter(e=>e.type)) }
+
+    // 서치 눌렀을때 나타내기
+    let showSearch = false;
+    function searchClick(){
+        const shopSearch = document.querySelector('#shopSearch');
+        if(showSearch === false){
+            shopSearch.style.opacity = "1";
+            shopSearch.style.transition = "0.5s";
+            showSearch = true;
+        }else{
+            shopSearch.style.opacity = "0";
+            shopSearch.style.transition = "0.5s";
+            showSearch = false;
+        }
+        return showSearch;
+    }
+
+    // 서치 카테고리(사이즈)
+    function sizeS() { setDresses(alldresses.filter(e=>e.size1!="0")) }
+    function sizeM() { setDresses(alldresses.filter(e=>e.size2!="0")) }
+    function sizeL() { setDresses(alldresses.filter(e=>e.size3!="0")) }
+
+    // 서치 카테고리(시즌)
+    function seasonSS22() { setDresses(alldresses.filter(e=>e.name.includes("SS22"))) }
+    function seasonSS21() { setDresses(alldresses.filter(e=>e.name.includes("SS21"))) }
+    function seasonFW21() { setDresses(alldresses.filter(e=>e.name.includes("FW21"))) }
 
     if(dresses === []) return <div>로딩중...</div>
 
     return (
         <div id="shop">
-            {/* <form onSubmit={={e=></div>onSearch(e)}}> */}
-                <ul id='shopLeft'>
-                    <li id='sig' onClick={tSig}>SIGNATURE</li>
-                    <li id='bLine' onClick={tBelline}>Bellline</li>
-                    <li id='mMaid' onClick={tMermaid}>Mermaid</li>
-                    <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
-                </ul>
-            {/* </form> */}
+            <ul id='shopLeft'>
+                <li id='sig' onClick={tSig}>SIGNATURE</li>
+                <li id='bLine' onClick={tBelline}>Bellline</li>
+                <li id='mMaid' onClick={tMermaid}>Mermaid</li>
+                <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
+                <li>
+                    <p onClick={searchClick}>Category</p>
+                    <ul id='shopSearch'>
+                        <li>
+                            <ul id='shopType'>
+                                <li className='search'>Type : </li>
+                                <li onClick={tBelline}>Bellline</li>
+                                <li onClick={tMermaid}>Mermaid</li>
+                            </ul>
+                            <ul id='shopSize'>
+                                <li className='search'>Size : </li>
+                                <li onClick={sizeS}>S</li>
+                                <li onClick={sizeM}>M</li>
+                                <li onClick={sizeL}>L</li>
+                            </ul>
+                            <ul id='shopSeason'>
+                                <li className='search'>Season : </li>
+                                <li onClick={seasonSS22}>SS22</li>
+                                <li onClick={seasonFW21}>FW21</li>
+                                <li onClick={seasonSS21}>SS21</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             <ul id='shopRight'>
                 {dresses.map(dress=>(
                     <ShopList key={dress.id} dress={dress}/>
