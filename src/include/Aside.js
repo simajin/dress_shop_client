@@ -72,7 +72,7 @@ const Aside = () => {
             </div>
         <aside>
                 <ul id="menu">
-                    <li><Link to="/Login">LOGIN</Link><br/><br/></li>
+                    <li><Link to="/login">LOGIN</Link><br/><br/></li>
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>
