@@ -50,9 +50,9 @@ const Shop = () => {
     function sizeL() { setDresses(alldresses.filter(e=>e.size3!="0")) }
 
     // 서치 카테고리(시즌)
-    function seasonSS22() { setDresses(alldresses.filter(e=>e.name.includes("SS22") )) }
-    function seasonSS21() { setDresses(alldresses.filter(e=>e.name.includes("SS21") )) }
-    function seasonFW21() { setDresses(alldresses.filter(e=>e.name.includes("FW21") )) }
+    function seasonSS22() { setDresses(alldresses.filter(e=>e.name.includes("SS22"))) }
+    function seasonSS21() { setDresses(alldresses.filter(e=>e.name.includes("SS21"))) }
+    function seasonFW21() { setDresses(alldresses.filter(e=>e.name.includes("FW21"))) }
 
     if(dresses === []) return <div>로딩중...</div>
 
