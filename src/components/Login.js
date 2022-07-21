@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginCss.css';
 import axios from 'axios';
@@ -10,14 +11,28 @@ const Login = () => {
     const [ userPassword, setUserPassword ] = useState('');
 
     //onChange 이벤트
-    //ID
+    //-ID
     const onChangeId = (e) => {
         setUserName(e.target.value);
     }
-    //PW
-    const onChangePW = (e) => {
+    //-PW
+    const onChangePw = (e) => {
         setUserPassword(e.target.value);
     }
+
+    //로그인 버튼
+    const login = () => {
+        axios.post('http://localhost:8000/login', {
+            userid: userName,
+            pw: userPassword
+        })
+        .then(response=>{
+            console.log(response);
+        })
+    }
+    // useEffect(()=>{
+
+    // })
 
     // const [inputId, setInputId] = useState('');     //ID
     // const [inputPw, setInputPw] = useState('');     //PW
@@ -53,17 +68,18 @@ const Login = () => {
         <div id='LoginContent'>
             <h2>W wedding</h2>
             <form id="inputs">
-                <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='input_id'
+                <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='c_id'
                 onClick={onChangeId}/>
-                <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='input_pw'
-                onClick={onChangePW}/>
+                <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='c_pw'
+                onClick={onChangePw}/>
                 {/* <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='input_id' value={inputId} onChange={onChangeId}/>
                 <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='input_pw' value={inputPw} onChange={onChangePw} /> */}
                 <ul>
                     <li><Link to="/register">회원가입</Link></li>
                     <li>ID/PW 찾기</li>
                  </ul>
-                 <button type='submit'>LOGIN</button>
+                 <button type='submit' onClick={login}>LOGIN</button>
+                 {/* <h1>{}</h1> */}
                  {/* <button type='submit' onClick={onClickLogin}>LOGIN</button> */}
             </form>
         </div>
