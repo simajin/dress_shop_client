@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './DetailDress.css'
+import { useNavigate } from 'react-router-dom';
 
 const DetailDress = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
     // const qttNum = document.querySelector("#qttNum");
@@ -39,6 +40,18 @@ const DetailDress = () => {
             setCurrentImg((current)=>current+1)
         }
     }, 4000);
+
+    //상품 삭제
+    const onDelete = () => {
+        axios.delete(`http://localhost:8000/delDress/${id}`)
+        .then(res=>{
+            console.log("삭제완료");
+            navigate('/shop');
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
     return (
         <div id='detail'>
             <div id='detailHead'>
@@ -127,7 +140,7 @@ const DetailDress = () => {
                         <button>ADD TO CART</button>
                         <div>
                             <button id='editBtn'>EDIT</button>
-                            <button id='deleteBtn'>DELETE</button>
+                            <button id='deleteBtn' onClick={onDelete}>DELETE</button>
                         </div>
                     </div>
                 </div>

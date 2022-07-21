@@ -87,8 +87,8 @@ const UploadProduct = () => {
                     <li>
                         <label htmlFor="name">type</label>
                         <select name='name'>
-                            <option name="c_type" value="Belline" onChange={onChange}>Bell_Line</option>
-                            <option name="c_type" value="Mermaid" onChange={onChange}>Mermaid</option>
+                            <option name="c_type" value="Belline" onChange={onChange}>bellline</option>
+                            <option name="c_type" value="Mermaid" onChange={onChange}>mermaid</option>
                         </select>
                     </li>
                     <li>
