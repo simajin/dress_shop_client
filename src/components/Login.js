@@ -21,14 +21,17 @@ const Login = () => {
     }
 
     //로그인 버튼
-    const login = () => {
+    const onSubmit= (e) => {
+        e.preventDefault();
         axios.post('http://localhost:8000/login', {
             username: userName,
             userpassword: userPassword
             // userid: userName,
             // pw: userPassword
         })
-        .then(res =>{console.log(res)})
+        .then(res =>{
+            console.log(res);
+        })
         .catch(e=>{
             console.log(e);
         })
@@ -69,18 +72,18 @@ const Login = () => {
     return (
         <div id='LoginContent'>
             <h2>W wedding</h2>
-            <form id="inputs">
+            <form id="inputs" onSubmit={onSubmit}>
                 <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='c_id'
-                onClick={onChangeId}/>
+                onChange={onChangeId} value={userName}/>
                 <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='c_password'
-                onClick={onChangePw}/>
+                onChange={onChangePw} value={userPassword} />
                 {/* <i className="material-icons">account_circle</i><input type="text" placeholder='ID' name='input_id' value={inputId} onChange={onChangeId}/>
                 <i className="material-icons">vpn_key</i><input type="password" placeholder='PASSWORD' name='input_pw' value={inputPw} onChange={onChangePw} /> */}
                 <ul>
                     <li><Link to="/register">회원가입</Link></li>
                     <li>ID/PW 찾기</li>
                  </ul>
-                 <button type='submit' onClick={login}>LOGIN</button>
+                 <button type='submit'>LOGIN</button>
                  {/* <h1>{}</h1> */}
                  {/* <button type='submit' onClick={onClickLogin}>LOGIN</button> */}
             </form>
