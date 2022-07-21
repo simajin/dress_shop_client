@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -62,6 +62,7 @@ const Shop = () => {
                 <li id='sig' onClick={tSig}>SIGNATURE</li>
                 <li id='bLine' onClick={tBelline}>Bellline</li>
                 <li id='mMaid' onClick={tMermaid}>Mermaid</li>
+                <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
                 <li>
                     <p onClick={searchClick}>Category</p>
                     <ul id='shopSearch'>

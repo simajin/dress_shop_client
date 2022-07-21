@@ -112,6 +112,10 @@
     top: 150%;
     font-size: 20px;
     width: 180px;
+    /* outline: none;
+    border: none;
+    color: #fff; */
+    height: 30px;
 }
 
 /* 상품 업로드 */
@@ -129,6 +133,7 @@
     margin-top: 200px;
     padding: 20px 0;
     transform: translateY(-9%);
+    margin-bottom: 100px;
 }
 #uploadBox::before{
     content: "";
@@ -181,6 +186,7 @@
     font-size: 18px;
     font-weight: 600;
     margin: 30px 0 15px 0;
+    z-index: 30;
 }
 #uploadBtn button:nth-child(1) {
     margin-right: 40px;

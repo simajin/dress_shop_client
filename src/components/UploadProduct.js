@@ -5,29 +5,92 @@ import React, { useState } from 'react';
 const UploadProduct = () => {
     // const navigate = useNavigate();
     const [ formData, setFormData ] = useState({
-        c_name: "",
-        c_price: "",
-        c_size1: "",
-        c_size2: "",
-        c_size3: "",
-        c_type: "",
-        c_desc1: "",
-        c_desc2: "",
-        c_pic1: "",
-        c_pic2: "",
-        c_pic3: ""
+        product : {
+            c_name: "",
+            c_price: "",
+            c_size1: "",
+            c_size2: "",
+            c_size3: "",
+            c_type: "",
+            c_desc1: "",
+            c_desc2: "",
+        },
+        productImg: {
+            c_pic1: "",
+            c_pic2: "",
+            c_pic3: ""
+        }
     })
     //onChange 이벤트
+    // function extractFilename(path) {
+    //     if (path.substr(0, 12) === "C:\\fakepath\\")
+    //       return path.substr(12); // modern browser
+    //     var x;
+    //     x = path.lastIndexOf('/');
+    //     if (x >= 0)         // Unix-based path
+    //       return path.substr(x+1);
+    //     x = path.lastIndexOf('\\');
+    //     if (x >= 0)         // Windows-based path
+    //       return path.substr(x+1);
+    //     return path;        // just the filename
+    // }
+    // function updateFilename(path) {
+    //     var name = extractFilename(path);
+    //     document.getElementById('filename').textContent = name;
+    // }
     const onChange = (e) => {
+        // const input = document.querySelector("input[type=file]");
+        const { name, value } = e.target;
+        // extractFilename();
+        // updateFilename();
+        setFormData({
+            ...e,
+            ...formData,
+            product : {
+                [name] : value
+            },
+            
+            // [name[0].value] : value.replace("C:\\fakepath\\","images/"),
+            // [formData.c_pic1]: value.replace("C:\\fakepath\\","images/"),
+        })
+        console.log(formData)
+    }
+    const onChangeImg = (e)=>{
         const { name, value } = e.target;
         setFormData({
-            ...formData,
-            [name]: value
+            ...e,
+            productImg : {
+                ...e.productImg,
+                // c_pic1 : 'images/'
+                [name] :value.replace("C:\\fakepath\\","images/")
+            }
         })
+        console.log(formData)
     }
+    //이미지 onChange 이벤트
+    // const onChangeImg = (e) => {
+    //     // const  file = e.target.files[0];
+    //     // const reader = new FileReader();
+    //     // reader.onload = (e) => {
+    //     //     const fileData = e.target.result;
+    
+    //     //     const somePath = 'images/';
+    
+    //     //     file.writeFile(somePath, fileData);
+    //     //     file.OpenFile(somePath)
+    //     // }
+    //     const { name, value } = e.target;
+    //     setFormData({
+    //         ...formData,
+    //         [name]: value
+    //     })
+    //     // const file = e.target.files[0];
+    //     // input.value = file.value.replace("C:\\fakepath\\", "/images/");
+    // }
     //폼 onSubmit 이벤트
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log("상품등록")
         console.log(formData);
 
         // 가격 숫자인지 체크
@@ -47,7 +110,7 @@ const UploadProduct = () => {
         }
         //등록함수
         function uploadDress(){
-            axios.post('http://localhost:8000/upload', formData)
+            axios.post('http://localhost:8000/uploadDress', formData)
             .then(res=>{
                 console.log(res);
                 // navigate('/shop');
@@ -87,8 +150,8 @@ const UploadProduct = () => {
                     <li>
                         <label htmlFor="name">type</label>
                         <select name='name'>
-                            <option name="c_type" value="Belline" onChange={onChange}>bellline</option>
-                            <option name="c_type" value="Mermaid" onChange={onChange}>mermaid</option>
+                            <option name="c_type" value="belline" onChange={onChange}>bellline</option>
+                            <option name="c_type" value="mermaid" onChange={onChange}>mermaid</option>
                         </select>
                     </li>
                     <li>
@@ -101,15 +164,17 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChange} />
+                        <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} />
+                        {/* <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
+                        <input type="hidden" name="real_path" value={formData.c_pic1} id='real_path' /> */}
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic2" value={formData.c_pic2} onChange={onChange} />
+                        <input type="file" name="c_pic2" value={formData.c_pic2} onChange={onChangeImg} />
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChange} />
+                        <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChangeImg} />
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit'>등록</button>

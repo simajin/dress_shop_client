@@ -12,10 +12,11 @@ import Join from './components/Join';
 import DetailDress from './components/DetailDress';
 import Cart from './components/Cart';
 // import ShopSearch from './components/ShopSearch';
+import UploadProduct from './components/UploadProduct';
+
 
 
 function App() {
-
   return (
     <div className="App">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
@@ -30,7 +31,7 @@ function App() {
         <Route path='/shop' element={<Shop/>} />
         <Route path='/shop/:id' element={<DetailDress/>} />
         <Route path='/cart' element={<Cart/>} />
-        {/* <Route path='/shopSearch/:type' element={<ShopSearch/>} /> */}
+        <Route path='/upload' element={<UploadProduct/>} />
       </Routes>
       <Footer/>
     </div>
