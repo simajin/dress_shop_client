@@ -5,17 +5,21 @@ import React, { useState } from 'react';
 const UploadProduct = () => {
     // const navigate = useNavigate();
     const [ formData, setFormData ] = useState({
-        c_name: "",
-        c_price: "",
-        c_size1: "",
-        c_size2: "",
-        c_size3: "",
-        c_type: "",
-        c_desc1: "",
-        c_desc2: "",
-        c_pic1: "",
-        c_pic2: "",
-        c_pic3: ""
+        product : {
+            c_name: "",
+            c_price: "",
+            c_size1: "",
+            c_size2: "",
+            c_size3: "",
+            c_type: "",
+            c_desc1: "",
+            c_desc2: "",
+        },
+        productImg: {
+            c_pic1: "",
+            c_pic2: "",
+            c_pic3: ""
+        }
     })
     //onChange 이벤트
     // function extractFilename(path) {
@@ -40,19 +44,28 @@ const UploadProduct = () => {
         // extractFilename();
         // updateFilename();
         setFormData({
+            ...e,
             ...formData,
+            product : {
+                [name] : value
+            },
+            
             // [name[0].value] : value.replace("C:\\fakepath\\","images/"),
-            [name] : value,
-            // [name] : value.replace("C:\\fakepath\\","images/"),
             // [formData.c_pic1]: value.replace("C:\\fakepath\\","images/"),
         })
-        // console.log([name[0]])
-        // console.log([name[1]])
-        // console.log([name[2]])
-        // console.log([name[3]])
-        // console.log([name[4]])
-        // console.log([name[5]])
-        // console.log([formData.c_pic1])
+        console.log(formData)
+    }
+    const onChangeImg = (e)=>{
+        const { name, value } = e.target;
+        setFormData({
+            ...e,
+            productImg : {
+                ...e.productImg,
+                // c_pic1 : 'images/'
+                [name] :value.replace("C:\\fakepath\\","images/")
+            }
+        })
+        console.log(formData)
     }
     //이미지 onChange 이벤트
     // const onChangeImg = (e) => {
@@ -151,17 +164,17 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChange} />
+                        <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} />
                         {/* <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
                         <input type="hidden" name="real_path" value={formData.c_pic1} id='real_path' /> */}
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic2" value={formData.c_pic2} onChange={onChange} />
+                        <input type="file" name="c_pic2" value={formData.c_pic2} onChange={onChangeImg} />
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChange} />
+                        <input type="file" name="c_pic3" value={formData.c_pic3} onChange={onChangeImg} />
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit'>등록</button>

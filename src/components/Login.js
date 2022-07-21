@@ -32,7 +32,7 @@ const Login = () => {
     }
     // 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
-        axios.get('http://localhost:8000/Login')
+        axios.get('http://localhost:8000/login')
         .then(res => console.log(res))
         .catch()
     },[])   // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
