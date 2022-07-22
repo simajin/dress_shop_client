@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import './LoginCss.css';
 import axios from 'axios';
+import { API_URL } from './config/contansts';
 // import { useParams } from 'react-router-dom';
 // import { Params } from 'react-router-dom';
 
@@ -32,7 +33,8 @@ const Login = ({logLogout}) => {
     //로그인 버튼 - onSubmit 이벤트
     const onSubmit= (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/login', {
+        // axios.post('http://localhost:8000/login', {
+        axios.post(`${API_URL}/login`, {
             username: userName,         // 여기 username과 server의 로그인에서 req.body 뒤에 오는 애 username이어야함(req.body.username 이어야함) 
             userpassword: userPassword  // 여기 userpassword과 server의 로그인에서 req.body 뒤에 오는 애 userpassword이어야함(req.body.userpassword 이어야함) 
             // userid: userName,
@@ -56,9 +58,11 @@ const Login = ({logLogout}) => {
     
     //get방식으로 login 보내기  -- cookie 생성하기
     useEffect(()=>{
-        axios.get("http://localhost:8000/login")
+        // axios.get("http://localhost:8000/login")
+        axios.get(`${API_URL}/login`)
         .then(response=>{
             // console.log(response);    // 콘솔창에,   user: Array(1) 0: {userid: 'ddddd', pw: '1234', name: '김블루', gender: '여자', phone: 10, …} 담김
+                    // eslint-disable-next-line
             if(response.data.loggedIn == true){
                 setLoginStatus(response.data.user[0].userid);
             }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ShopCss.css';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config/contansts';
 
 const EditProduct = () => {
     const navigate = useNavigate();
@@ -24,7 +25,8 @@ const EditProduct = () => {
 
     const [ dress, setDress ] = useState(null);
     useEffect(()=>{
-        axios.get(`http://localhost:8000/dress/${id}`)
+        // axios.get(`http://localhost:8000/dress/${id}`)
+        axios.get(`${API_URL}/dress/${id}`)
         .then(result=>{
             console.log(result);
             const data = result.data;
@@ -94,7 +96,8 @@ const EditProduct = () => {
         //수정함수
         //axios put 전송
         function updateDress(){
-            axios.put(`http://localhost:8000/editDress/${id}`,formData)
+            // axios.put(`http://localhost:8000/editDress/${id}`,formData)
+            axios.put(`${API_URL}/editDress/${id}`,formData)
             .then(res=>{
                 console.log(res);
                 navigate('/shop');

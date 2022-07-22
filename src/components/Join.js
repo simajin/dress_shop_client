@@ -3,6 +3,7 @@ import './Join.css';
 import PopupDom from "./PopupDom";
 import PopupPostCode from "./PopupPostCode";
 import axios from 'axios';
+import { API_URL } from './config/contansts';
 // import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
@@ -83,7 +84,8 @@ const Join = () => {
     }
     //insertJoin 함수
     function insertJoin(){
-        axios.post("http://localhost:8000/register",formData)
+        // axios.post("http://localhost:8000/register",formData)
+        axios.post(`${API_URL}/register`,formData)
         .then(res=>{
             console.log(res);
             // navigate('/');              

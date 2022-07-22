@@ -4,36 +4,39 @@ import axios from 'axios';
 import './DetailDress.css'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Aside from '../include/Aside';
+import { API_URL } from './config/contansts';
 
 const DetailDress = () => {
     const navigate = useNavigate();
-    const slt = document.querySelector("#slt");
+    // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
-    const qttNum = document.querySelector("#qttNum");
+    // const qttNum = document.querySelector("#qttNum");
     const [ dress, setDress ] = useState(null);
     const { id } = useParams();             // id값 받아오기
     //상태관리 - 이미지 변경
     const detailImg = document.querySelectorAll(".detailImg");
     const [ mainImg, setMainImg ] = useState('');
     const [ maxQtt, setMaxQtt] = useState('');
-    const [ qtt , setQtt ] = useState('');
+    // const [ qtt , setQtt ] = useState('');
     const [ currentImg, setCurrentImg ] = useState(0);
     const [ cartData, setCartData ] = useState();
     useEffect(()=>{
-        axios.get(`http://localhost:8000/dress/${id}`)
+        // axios.get(`http://localhost:8000/dress/${id}`)
+        axios.get(`${API_URL}/dress/${id}`)
         .then(result => {
             console.log(result);
             const resulta = result.data;
             setDress(resulta[0]); 
-            setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
+            // setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
+            setMainImg(`${API_URL}`+resulta[0].imgsrc);
             setMaxQtt(resulta[0].size1); 
             setCartData({
                     c_img : resulta[0].imgsrc,
                     c_name : resulta[0].name,
                     c_price : resulta[0].price,
                     c_size : "",
-                    c_amount : qtt,
+                    // c_amount : qtt,
+                    c_amount : "",
                     c_userid : "",
             });
         })   
@@ -53,7 +56,8 @@ const DetailDress = () => {
     }, 4000);
     //상품 삭제
     const onDelete = () => {
-        axios.delete(`http://localhost:8000/delDress/${id}`)
+        // axios.delete(`http://localhost:8000/delDress/${id}`)
+        axios.delete(`${API_URL}/delDress/${id}`)
         .then(res=>{
             console.log("삭제완료");
             navigate('/shop');
@@ -62,14 +66,15 @@ const DetailDress = () => {
             console.log(err);
         })
     }
-    const amountChange = ()=>{
-        setCartData(
-            ...cartData,
-        )
-    }
+    // const amountChange = ()=>{
+    //     setCartData(
+    //         ...cartData,
+    //     )
+    // }
     //카트 추가
     const addToCart = ()=>{
-        axios.post(`http://localhost:8000/addToCart`, cartData)
+        // axios.post(`http://localhost:8000/addToCart`, cartData)
+        axios.post(`${API_URL}/addToCart`, cartData)
         .then(res=>{
             console.log("카트추가완료");
             if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){

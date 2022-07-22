@@ -3,6 +3,7 @@ import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
 import { Link } from 'react-router-dom';
+import { API_URL } from './config/contansts';
 
 
 const Shop = () => {
@@ -11,7 +12,8 @@ const Shop = () => {
     const [ alldresses, setallDresses ] = useState([]);
     // const [ dressAll, setDressAll ] = useState([]);
     useEffect(()=>{ 
-        axios.get("http://localhost:8000/dresses")
+        // axios.get("http://localhost:8000/dresses")
+        axios.get(`${API_URL}/dresses`)
         .then((result)=>{
             const dresses = result.data;
             console.log(dresses)
@@ -45,8 +47,11 @@ const Shop = () => {
     }
 
     // 서치 카테고리(사이즈)
+            // eslint-disable-next-line
     function sizeS() { setDresses(alldresses.filter(e=>e.size1!="0")) }
+            // eslint-disable-next-line
     function sizeM() { setDresses(alldresses.filter(e=>e.size2!="0")) }
+            // eslint-disable-next-line
     function sizeL() { setDresses(alldresses.filter(e=>e.size3!="0")) }
 
     // 서치 카테고리(시즌)

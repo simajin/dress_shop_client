@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config/contansts';
 
 const UploadProduct = () => {
     const navigate = useNavigate();
@@ -96,7 +97,8 @@ const UploadProduct = () => {
         }
         //등록함수
         function uploadDress(){
-            axios.post('http://localhost:8000/uploadDress', (formData))
+            // axios.post('http://localhost:8000/uploadDress', (formData))
+            axios.post(`${API_URL}/uploadDress`, (formData))
             .then(res=>{
                 console.log(res);
                 navigate('/shop');

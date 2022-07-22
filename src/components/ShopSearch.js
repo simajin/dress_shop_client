@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+// import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
 import { useParams } from 'react-router-dom';
+import { API_URL } from './config/contansts';
 
 const ShopSearch = () => {
     //mysql로 데이터 불러오기
@@ -11,7 +13,8 @@ const ShopSearch = () => {
     const { type } = useParams();
     // const [ dressAll, setDressAll ] = useState([]);
     useEffect(()=>{ 
-        axios.get(`http://localhost:8000/dress/${type}`)
+        // axios.get(`http://localhost:8000/dress/${type}`)
+        axios.get(`${API_URL}/dress/${type}`)
         .then((result)=>{
             const dresses = result.data;
             console.log(dresses)
@@ -21,6 +24,7 @@ const ShopSearch = () => {
         .catch(e=>{
             console.log(e);
         })
+    // eslint-disable-next-line
     },[])
     //카테고리
     function tBelline(){ setDresses(alldresses.filter(e=>e.type==="belline"))}
