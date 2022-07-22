@@ -1,5 +1,6 @@
-import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
+// import axios from 'axios';
+// import React, { useEffect, useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Aside = () => {
@@ -31,23 +32,23 @@ const Aside = () => {
     function aboutEvent(){
         window.scrollTo (0,800);
     }
-    const [ searchMenu, setSearchMenu] = useState(false);
-    const [ dress, setDress ] = useState(null);
-    const [ search, setSearch ] = useState('');
+    // const [ searchMenu, setSearchMenu] = useState(false);
+    // const [ dress, setDress ] = useState(null);
+    // const [ search, setSearch ] = useState('');
     
-    const searchBox = useRef()
-    let showMenu = false
-    function showSearchMenu(){
-        if(showMenu === false){
-            searchBox.current.style.opacity = "1";
-            searchBox.current.style.transition = "0.5s";
-            showMenu = true;
-        }else{
-            searchBox.current.style.opacity = "0";
-            searchBox.current.style.transition = "0.5s";
-            showMenu = false;
-        }
-    }
+    // const searchBox = useRef()
+    // let showMenu = false
+    // function showSearchMenu(){
+    //     if(showMenu === false){
+    //         searchBox.current.style.opacity = "1";
+    //         searchBox.current.style.transition = "0.5s";
+    //         showMenu = true;
+    //     }else{
+    //         searchBox.current.style.opacity = "0";
+    //         searchBox.current.style.transition = "0.5s";
+    //         showMenu = false;
+    //     }
+    // }
 
     // 카테고리
     // useEffect(()=>{
