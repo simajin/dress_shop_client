@@ -13,6 +13,7 @@
     "async": "^3.2.4",
     "axios": "^0.27.2",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-daum-postcode": "^3.1.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.33.1",
