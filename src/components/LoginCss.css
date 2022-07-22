@@ -70,3 +70,13 @@
     font-size: 18px;
     font-weight: 600;
 }
+/* 로그인상태 알려주는  */
+.logStatus {
+    position: absolute;
+    top: 70%;
+    font-size: 40px;
+    left: 55%;
+    transform: translate(-70%,-55%);
+    color: rgb(230, 117, 117);
+    font-family: 'Playfair Display','Gowun Dodum', serif;
+}

@@ -32,6 +32,26 @@ const Aside = () => {
     function aboutEvent(){
         window.scrollTo (0,800);
     }
+
+    //쿠키가 유지됨에 따라 로그인 버튼을 로그아웃 버튼으로 바꾸어 주기
+    // alert( document.cookie );           //자바스크립트 쿠키 부르는법
+    // const cookies = "<%= cookie %>";
+    // const log = document.querySelector(".log");
+    // if (cookies === "false") {
+    //     log.innerHTML = "Login";
+    //     log.href = "/login";
+    // } else {
+    //     log.innerHTML = "Logout";
+    //     log.href = "/logout";
+    // }
+    console.log(document.cookies);
+
+    
+
+
+
+
+    // 검색
     // const [ searchMenu, setSearchMenu] = useState(false);
     // const [ dress, setDress ] = useState(null);
     // const [ search, setSearch ] = useState('');
@@ -64,7 +84,6 @@ const Aside = () => {
     //     // eslint-disable-next-line
     // },[])
     
-    
     return (
         <>
             <div id="menu_bar" onClick={menuClick} className='inner'>
@@ -73,7 +92,8 @@ const Aside = () => {
             </div>
         <aside>
                 <ul id="menu">
-                    <li><Link to="/login">LOGIN</Link><br/><br/></li>
+                    {/* <li>{cookies ? <Link to="/logout">LOGOUT</Link> : <Link to="/login">LOGIN</Link>}<br/><br/></li> */}
+                    <li><Link to="/login" className='log'>LOGIN</Link><br/><br/></li>
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>

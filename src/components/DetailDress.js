@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './DetailDress.css'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Aside from '../include/Aside';
 
 const DetailDress = () => {
@@ -206,7 +207,7 @@ const DetailDress = () => {
                         <input id='qttNum' type="number" min="0" max={maxQtt} onChange={qttChange} />
                         <button onClick={addToCart}>ADD TO CART</button>
                         <div>
-                            <button id='editBtn'>EDIT</button>
+                            <button id='editBtn'><Link to={`/editDress/${dress.id}`}>EDIT</Link></button>
                             <button id='deleteBtn' onClick={onDelete}>DELETE</button>
                         </div>
                     </div>
@@ -216,7 +217,7 @@ const DetailDress = () => {
                 <div id='descText'>
                     <h3>DESCRIPTION</h3>
                     <p>
-                        {dress.desc}
+                        {dress.desc1}
                     </p>
                     <p>
                         {dress.desc2}
