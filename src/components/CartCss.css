@@ -22,9 +22,14 @@
     height: 30%;
     border-collapse: collapse;
 }
+
 #cartTable tr td {
     border-top: 1px solid #fff;
     padding: 16px 0;
+    width: 23%;
+}
+#cartTable tr td:last-child {
+    padding-right: 80px;
 }
 #cartReceipt {
     width: 23%;
