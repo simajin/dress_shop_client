@@ -13,11 +13,12 @@ const Shop = () => {
     // const [ dressAll, setDressAll ] = useState([]);
     useEffect(()=>{ 
         // axios.get("http://localhost:8000/dresses")
-        axios.get(`${API_URL}/dresses`)
-        .then((result)=>{
+        axios.get(`https://dress-shop-server.herokuapp.com/dresses`)
+        .then(result=>{
             const dresses = result.data;
             console.log(dresses)
-            setallDresses(dresses)
+            console.log(result.data)
+            setallDresses(result.data)
             setDresses(result.data)
         })
         .catch(e=>{
