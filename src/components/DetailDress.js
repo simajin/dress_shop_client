@@ -10,7 +10,7 @@ const DetailDress = () => {
     const navigate = useNavigate();
     // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
-    // const qttNum = document.querySelector("#qttNum");
+    const qttNum = document.querySelector("#qttNum");
     const [ dress, setDress ] = useState(null);
     const { id } = useParams();             // id값 받아오기
     //상태관리 - 이미지 변경
@@ -74,19 +74,24 @@ const DetailDress = () => {
     //카트 추가
     const addToCart = ()=>{
         // axios.post(`http://localhost:8000/addToCart`, cartData)
-        axios.post(`${API_URL}/addToCart`, cartData)
-        .then(res=>{
-            console.log("카트추가완료");
-            if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
-                navigate('/cart');
-                console.log("옙")
-            }else{
-                console.log("놉")
-            }
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+        if(qttNum.value == 0){
+            window.alert("수량을 입력해주세요.");
+        }else{
+            axios.post(`${API_URL}/addToCart`, cartData)
+            .then(res=>{
+                console.log("카트추가완료");
+    
+                if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
+                    navigate('/cart');
+                    console.log("옙")
+                }else{
+                    console.log("놉")
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        }
     }
     const selectOnChange = (e) => {
         const { value } = e.target
