@@ -29,7 +29,6 @@ const DetailDress = () => {
             setDress(resulta[0]); 
             // setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
             // setMainImg(`https://dress-shop-client-eight.vercel.app/${resulta[0].imgsrc}`);
-            // setMainImg(`https://dress-shop-client-eight.vercel.app/${resulta[0].imgsrc}`);
             setMainImg("../"+resulta[0].imgsrc);
             setMaxQtt(resulta[0].size1); 
             setCartData({
