@@ -22,7 +22,7 @@ const Cart = () => {
             let totalNum = 0;
    
             result.data.forEach(data => {
-                 totalNum = totalNum+(data.price*Number(data.amount));
+                totalNum = totalNum+(data.price*Number(data.amount));
                 console.log(data.price)
                 setTotalPrice(totalNum)
             });
