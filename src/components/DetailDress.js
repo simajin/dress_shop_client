@@ -10,7 +10,7 @@ import { getCookie } from './util/cookie';
 const DetailDress = () => {
     const navigate = useNavigate();
 
-    // 관리자 로그인시
+    // 로그인시 -- cookie값 받아옴
     const userid = getCookie('userid');
     console.log(userid);
 
@@ -45,7 +45,7 @@ const DetailDress = () => {
                     c_size : "",
                     // c_amount : qtt,
                     c_amount : "",
-                    c_userid : "",
+                    c_userid : userid,
             });
         })   
         .catch(e=> {
