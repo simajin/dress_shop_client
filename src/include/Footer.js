@@ -37,7 +37,7 @@ const Footer = () => {
             const footerBtn = document.querySelector("#footerBtn");
             const scrollHeight = document.body.scrollHeight-window.innerHeight
             // console.log(window.scrollY);
-            if(window.scrollY === scrollHeight){
+            if(window.scrollY >= scrollHeight){
                 footerMenu.style.bottom = "0";
                 footerMenu.style.transition = "0.5s";
                 setTimeout(()=>{
