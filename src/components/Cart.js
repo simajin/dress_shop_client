@@ -4,16 +4,19 @@ import axios from 'axios';
 import CartList from './CartList';
 // import { Link } from 'react-router-dom';
 import { API_URL } from './config/contansts';
+import { useParams } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+    const { ids } = useParams();     //cart - id값 불러오기
+
     const [totalPrice, setTotalPrice] = useState(0);
     //  mysql로 데이터 불러오기
      const [ carts, setCarts ] = useState([]);
      useEffect(()=>{
         // axios.get(`http://localhost:8000/cart`)
-        axios.get(`${API_URL}/cart`)
+        axios.get(`${API_URL}/cart/${ids}`)
         .then((result) => {
             const carts = result.data;
             console.log(carts);
@@ -33,9 +36,9 @@ const Cart = () => {
             console.log(e);
         })
        
-    },[])
-    if(!carts) return <div>로딩중...</div>
+    },[ids])
     
+    if(!carts) return <div>로딩중...</div>
     return (
         <div id='cartInner'>
             <h2>Cart</h2>
