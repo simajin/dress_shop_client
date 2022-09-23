@@ -63,14 +63,61 @@ const EditProduct = () => {
             [name] : value
         })
     }
-    //이미지 onChange 이벤트
+    // const onChangeImgName = ()=>{
+    //     }
+        // 이미지 onChange 이벤트
+    // const onChangeImg = (e)=>{
+    //     const { name, value } = e.target;
+    //     setFormData({
+    //         ...formData,
+    //         [name] :value.replace("C:\\fakepath\\","shopImg/")
+    //     })
+    // }
+    
     const onChangeImg = (e)=>{
-        const { name, value } = e.target;
-        setFormData({
+        const {value} = e.target;
+        setDress({
+            ...dress,
+            imgsrc: value.replace("C:\\fakepath\\","shopImg/"),
+            imgsrc2: formData.c_pic2,
+            imgsrc3: formData.c_pic3,
+        })
+        const {name} = e.target;
+        let imageFormData = new FormData();
+        imageFormData.append(name, e.target.files[0]);
+        axios.post(`${API_URL}/shopImg4`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
             ...formData,
-            [name] :value.replace("C:\\fakepath\\","images/")
+            c_pic1: response.data.imgsrc4
+          })
+        })
+        axios.post(`${API_URL}/shopImg5`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
+            ...formData,
+            c_pic2: response.data.imgsrc5
+          })
+        })
+        axios.post(`${API_URL}/shopImg6`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
+            ...formData,
+            c_pic3: response.data.imgsrc6
+          })
         })
     }
+
+
 
     //폼 submit이벤트
     const onSubmit = (e) => {
@@ -155,17 +202,18 @@ const EditProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic1" onChange={onChangeImg} />
-                        {/* <input type="file" name="c_pic1" defaultValue={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
-                        <input type="hidden" name="real_path" defaultValue={formData.c_pic1} id='real_path' /> */}
+                        <input type="file" name="c_pic4" onChange={onChangeImg} />
+                        <p className='fakeImgName'>{dress.imgsrc}</p>
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic2" onChange={onChangeImg} />
+                        <input type="file" name="c_pic5" onChange={onChangeImg} />
+                        <p className='fakeImgName'>{dress.imgsrc2}</p>
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic3" onChange={onChangeImg} />
+                        <input type="file" name="c_pic6" onChange={onChangeImg} />
+                        <p className='fakeImgName'>{dress.imgsrc3}</p>
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit' onClick={check}>수정</button>
