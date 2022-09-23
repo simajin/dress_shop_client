@@ -25,7 +25,7 @@
     font-size: 40px;
 }
 #joinForm input { 
-    width: 80%;
+    /* width: 80%; */
     height: 30px;
     padding: 0 14px;
     border: none;
@@ -42,9 +42,9 @@
 /* #joinTable td:nth-child(2)::before {
     content: ": ";
 } */
-#joinTable .phoneNum input {
+/* #joinTable .phoneNum input {
     padding-left: 25px;
-}
+} */
 /* #joinTable tableGender input {
     margin-left: 20px;
 } */
@@ -121,4 +121,31 @@
 #tableAdd1 {
     position: absolute;
     top: 2%;
+}
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+    #joinForm {
+        width: 70%;
+        height: 90vh;
+        margin-top: 5vh;
+    } 
+    #joinTable td:nth-child(1){
+        width: 30%;
+    }
+    #joinTable td:nth-child(2) {
+        width: 100%;
+    }
+    #joinForm .phoneNum {
+        width: 100%;
+    }
+    /* #joinForm .phoneNum input {
+        width: 100%;
+    } */
+    #joinTable .phone {
+        padding-left: 5px;
+    }
+    #joinForm .tableGender {
+        padding-left: 15px;
+    }
 }

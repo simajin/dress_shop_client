@@ -121,6 +121,7 @@ html{
   stroke-linejoin:round;
   stroke-width:3px;
 }
+
 #menu_bar {
   width: 50px;
   height: 50px;
@@ -295,4 +296,34 @@ html{
 }
 #searchBox li{
   width: 33%;
+}
+
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+  /* 헤더 + 메뉴 */
+  #header {
+    height: 100px;
+  }
+  #wLogo{
+    width: 100px;
+    height: 60px;
+  }
+  #menu {
+    width: 50%;
+    height: 105vh;
+  }
+  /* 푸터 */
+  #footer #logoBot{
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    z-index: 20;
+  }
+  #wLogoBot{
+    width: 100px;
+    height: 60px;
+  }
 }

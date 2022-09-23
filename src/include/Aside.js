@@ -3,11 +3,13 @@
 // import React, { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { setLogout } from '../components/modules/logincookie';
 import { getCookie, removeCookie } from '../components/util/cookie';
 
 const Aside = () => {
+    const navigate = useNavigate();
+
     // ⚡쿠키 -- 로그인 유지
     const uid = getCookie('userid');
     const uname = getCookie('username');
@@ -103,6 +105,14 @@ const Aside = () => {
     //     // eslint-disable-next-line
     // },[])
     
+    // 로그인X -> cart 클릭시, 로그인 후 이용 알람창
+    const onCart = (e) => {
+        if(!uid) {
+            alert('로그인 후 이용해주세요.');
+            navigate('/login');
+        }
+    }
+    
     return (
         <>
             <div id="menu_bar" onClick={menuClick} className='inner'>
@@ -128,7 +138,7 @@ const Aside = () => {
                     {/* <li><Link to="/login" className='log'>LOGIN</Link><br/><br/></li> */}
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
-                    <li><Link to={`/cart/${uid}`}>CART</Link></li>
+                    <li onClick={onCart}><Link to={`/cart/${uid}`}>CART</Link></li>
                     <li><Link to="/shop">SEARCH</Link></li>
                     {/* <li id='searchText'> */}
                         {/* <p  onClick={showSearchMenu}><Link to="/shopSearch">SEARCH</Link></p> */}

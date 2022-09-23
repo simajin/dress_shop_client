@@ -180,3 +180,17 @@ h1 {
     transform: translateY(0);     
   }
 }
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+  .text {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    z-index: 10;
+  }
+  h1 {
+    font-size: 100px;
+    z-index: 10;
+  }
+}

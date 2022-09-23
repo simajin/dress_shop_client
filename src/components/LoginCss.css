@@ -80,3 +80,15 @@
     color: rgb(230, 117, 117);
     font-family: 'Playfair Display','Gowun Dodum', serif;
 }
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+    #LoginContent #inputs i:nth-child(1) {
+        top: 5%;
+        left: 30%;
+    }
+    #LoginContent #inputs i:nth-child(3) {
+        top: 34%;
+        left: 30%;
+    }
+}
