@@ -191,3 +191,12 @@
 #uploadBtn button:nth-child(1) {
     margin-right: 40px;
 }
+.fakeImgName{
+    color: #000;
+    font-family: sans-serif;
+    font-size: 14px;
+    position: absolute;
+    left: 273px;
+    background: rgba(238, 230, 231, 1);
+    line-height: 23px;
+}
