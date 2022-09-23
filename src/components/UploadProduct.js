@@ -48,12 +48,48 @@ const UploadProduct = () => {
         })
     }
     const onChangeImg = (e)=>{
-        const { name, value } = e.target;
-        setFormData({
+        const {name} = e.target;
+        let imageFormData = new FormData();
+        imageFormData.append(name, e.target.files[0]);
+        axios.post(`${API_URL}/shopImg`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
             ...formData,
-            [name] :value.replace("C:\\fakepath\\","images/")
+            c_pic1: response.data.imgsrc
+          })
+        })
+        axios.post(`${API_URL}/shopImg2`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
+            ...formData,
+            c_pic2: response.data.imgsrc2
+          })
+        })
+        axios.post(`${API_URL}/shopImg3`, imageFormData,{
+        // axios.post("http://localhost:8000/shopImg", imageFormData,{
+          Header: { 'content-type': 'multipart/form-data' },
+        }).then((response) => {
+          console.log(response.data)
+          setFormData({
+            ...formData,
+            c_pic3: response.data.imgsrc3
+          })
         })
     }
+    // const onChangeImg = (e)=>{
+    //     const { name, value } = e.target;
+    //     setFormData({
+    //         ...formData,
+    //         [name] :value.replace("C:\\fakepath\\","images/")
+    //     })
+    // }
+
     //이미지 onChange 이벤트
     // const onChangeImg = (e) => {
     //     // const  file = e.target.files[0];

@@ -4,10 +4,10 @@ import PopupDom from "./PopupDom";
 import PopupPostCode from "./PopupPostCode";
 import axios from 'axios';
 import { API_URL } from './config/contansts';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     // < 주소 > 
     //우편번호 관리하기
     const onAddData = (data) => {
@@ -27,6 +27,8 @@ const Join = () => {
     const closePostCode = () =>{
         setIsPopupOpen(false);
     }
+
+
     const [ formData, setFormData ] = useState({
         c_id: "",
         c_password: "",
@@ -40,7 +42,7 @@ const Join = () => {
         c_adddetail: "",
         c_email: ""
     })
-    //input - onChange 이벤트
+    // input - onChange 이벤트
     const onChange = async (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -48,6 +50,7 @@ const Join = () => {
             [name]: value
         })
     }
+
 
     //폼 - submit 이벤트  
     const onSubmit = (e) => {
@@ -76,19 +79,19 @@ const Join = () => {
         // else {
         //     if (formData.c_id===)
         // }
-        //input에 값이 있는지 체크하고
+        //input에 값이 있는지 체크하고 (주소는 생략가능!!!)
         if(formData.c_id !== "" && formData.c_password !== "" && formData.c_pwch !== "" && formData.c_name !== "" && formData.c_gender !== "" &&
-        formData.c_phone !== "" && formData.c_add !== "" && formData.c_adddetail !=="" && formData.c_email !==""){
+        formData.c_phone !== "" && formData.c_email !==""){
             insertJoin();
         }
     }
     //insertJoin 함수
     function insertJoin(){
-        // axios.post("http://localhost:8000/register",formData)
-        axios.post(`${API_URL}/register`,formData)
+        // axios.post("http://localhost:8000/join",formData)
+        axios.post(`${API_URL}/join`,formData)
         .then(res=>{
             console.log(res);
-            // navigate('/');              
+            navigate('/');              
         })
         .catch(e=>{
             console.log(e);
@@ -103,11 +106,11 @@ const Join = () => {
                         <tr className='tableTr'>
                             <td>아이디 </td>
                             {/* useState로 값을 주고 있는데 그걸 바꾸려면 onChange를 써서 바꿔줘야함! -> onChange 하나하나 다 걸어주기! */}
-                            <td><i className="material-icons">account_circle</i><input type="text" name='c_id' placeholder="ID 4~10words" value={formData.c_id} onChange={onChange} /></td>
+                            <td><i className="material-icons">account_circle</i><input type="text" id="userid" name='c_id' placeholder="ID 4~10words" value={formData.c_id} onChange={onChange} /></td>
                         </tr>
                         <tr className='tableTr'>
                             <td>비밀번호 </td>
-                            <td><i className="material-icons">vpn_key</i><input type="password" name='c_password' placeholder='Password' value={formData.c_password} onChange={onChange} /></td>
+                            <td><i className="material-icons">vpn_key</i><input type="password" name='c_password' placeholder='4자이상 입력해주세요' value={formData.c_password} onChange={onChange} /></td>
                         </tr>
                         <tr className='tableTr'>
                             <td>비밀번호 확인 </td>
@@ -137,7 +140,7 @@ const Join = () => {
                         <tr className='tableTr'>
                             <td id='tableAdd1'>주소 </td>
                             <td className='tableAdd'>
-                                <input name="c_add" type="text" value={formData.c_add} onChange={onChange} />
+                                <input name="c_add" type="text" value={formData.c_add} onChange={onChange} placeholder="주소는 생략가능합니다." />
                                 <input name="c_adddetail" type="text" value={formData.c_adddetail} onChange={onChange} />
                                 <button type="button" onClick={openPostCode}>우편번호 검색</button>
                                 <div id="popupDom">

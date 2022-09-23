@@ -1,9 +1,27 @@
 // import axios from 'axios';
 // import React, { useEffect, useRef, useState } from 'react';
 // import React, { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setLogout } from '../components/modules/logincookie';
+import { getCookie, removeCookie } from '../components/util/cookie';
 
 const Aside = () => {
+    // ⚡쿠키 -- 로그인 유지
+    const uname = getCookie('username');
+    const dispatch = useDispatch();
+    const isLogin = useSelector(state=>state.logincookie.isLogin)
+    const logoutClick = () => {
+        removeCookie('username')
+        removeCookie('userid')
+        dispatch(setLogout())
+        
+    }
+    useEffect(()=>{
+        
+    },[isLogin])
+
     
     // 메뉴 클릭이벤트 한번 눌렀을때
     function menuClick() {
@@ -33,7 +51,9 @@ const Aside = () => {
         window.scrollTo (0,800);
     }
 
-    //쿠키가 유지됨에 따라 로그인 버튼을 로그아웃 버튼으로 바꾸어 주기
+
+
+    // ⚡session 이용했을 때, --> 쿠키가 유지됨에 따라 로그인 버튼을 로그아웃 버튼으로 바꾸어 주기 
     // alert( document.cookie );           //자바스크립트 쿠키 부르는법
     // const cookies = "<%= cookie %>";
     // const log = document.querySelector(".log");
@@ -44,11 +64,9 @@ const Aside = () => {
     //     log.innerHTML = "Logout";
     //     log.href = "/logout";
     // }
-    console.log(document.cookies);
+    // console.log(document.cookies);
 
     
-
-
 
 
     // 검색
@@ -92,8 +110,22 @@ const Aside = () => {
             </div>
         <aside>
                 <ul id="menu">
+                    {
+                        isLogin && <>
+                        <li>Welcome {uname}!</li>
+                        <li onClick={logoutClick}>LOGOUT<br/><br/></li>
+                        {/* <li><Link to="/join">회원정보수정</Link></li>  */}
+                        </>
+                    }
+                    {
+                        isLogin || <>
+                        <li><Link to="/login">LOGIN</Link><br/><br/></li>
+                        {/* <li><Link to="/join">회원가입</Link></li>  */}
+                        </>
+
+                    }
                     {/* <li>{cookies ? <Link to="/logout">LOGOUT</Link> : <Link to="/login">LOGIN</Link>}<br/><br/></li> */}
-                    <li><Link to="/login" className='log'>LOGIN</Link><br/><br/></li>
+                    {/* <li><Link to="/login" className='log'>LOGIN</Link><br/><br/></li> */}
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
                     <li><Link to="/cart">CART</Link></li>

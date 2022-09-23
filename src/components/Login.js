@@ -8,6 +8,9 @@ import { API_URL } from './config/contansts';
 // import { useParams } from 'react-router-dom';
 // import { Params } from 'react-router-dom';
 
+
+
+// ⚡session 이용한거 --> X
 const Login = ({logLogout}) => {
     const navigate = useNavigate();
     console.log(logLogout);

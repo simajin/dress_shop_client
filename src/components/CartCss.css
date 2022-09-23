@@ -26,10 +26,17 @@
 #cartTable tr td {
     border-top: 1px solid #fff;
     padding: 16px 0;
-    width: 23%;
 }
-#cartTable tr td:last-child {
-    padding-right: 80px;
+#cartTable tr td button {
+    padding: 6px 8px 4px;
+    border: none;
+    border-radius: 50%;
+    background:rgba(243, 243, 243, 0.8);
+    color: #555;
+    font-size: 18px;
+}
+#cartTable tr td button:hover {
+    background: rgba(171, 171, 171, 0.8);
 }
 #cartReceipt {
     width: 23%;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from './config/contansts';
 
 const ShopList = ({dress}) => {
     return ( 
@@ -7,12 +8,12 @@ const ShopList = ({dress}) => {
             <div className='shopImgWrap'>
                 <div className='shopImg1'>
                     <Link to={`/shop/${dress.id}`}>
-                        <img src={dress.imgsrc} alt="" />
+                        <img src={`${API_URL}/${dress.imgsrc}`} alt="" />
                     </Link>
                 </div>
                 <div className='shopImg2'>
                     <Link to={`/shop/${dress.id}`}>
-                        <img src={dress.imgsrc2} alt="" />
+                        <img src={`${API_URL}/${dress.imgsrc2}`} alt="" />
                     </Link>
                 </div>
             </div>

@@ -29,7 +29,8 @@ const DetailDress = () => {
             setDress(resulta[0]); 
             // setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
             // setMainImg(`https://dress-shop-client-eight.vercel.app/${resulta[0].imgsrc}`);
-            setMainImg("../"+resulta[0].imgsrc);
+            // setMainImg("../"+resulta[0].imgsrc);
+            setMainImg(`${API_URL}/${resulta[0].imgsrc}`);
             setMaxQtt(resulta[0].size1); 
             setCartData({
                     c_img : resulta[0].imgsrc,
@@ -137,7 +138,7 @@ const DetailDress = () => {
                                 }
                                 e.target.style.filter = "grayscale(80%)";
                                 e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc2}`} alt="" className='detailImg' /></li>
                         <li><img onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
@@ -146,7 +147,7 @@ const DetailDress = () => {
                             }
                             e.target.style.filter = "grayscale(80%)";
                             e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc}`} alt="" className='detailImg' /></li>
                         <li><img onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
@@ -155,7 +156,7 @@ const DetailDress = () => {
                             }
                             e.target.style.filter = "grayscale(80%)";
                             e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc3}`} alt="" className='detailImg' /></li>
                         <li><img onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
@@ -164,7 +165,7 @@ const DetailDress = () => {
                             }
                             e.target.style.filter = "grayscale(80%)";
                             e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc}`} alt="" className='detailImg' /></li>
                         <li><img onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
@@ -173,7 +174,7 @@ const DetailDress = () => {
                             }
                             e.target.style.filter = "grayscale(80%)";
                             e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc2} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc2}`} alt="" className='detailImg' /></li>
                         <li><img onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
@@ -182,7 +183,7 @@ const DetailDress = () => {
                             }
                             e.target.style.filter = "grayscale(80%)";
                             e.target.style.border = "2px solid #fff"
-                            }} src={"../"+dress.imgsrc3} alt="" className='detailImg' /></li>
+                            }} src={`${API_URL}/${dress.imgsrc3}`} alt="" className='detailImg' /></li>
                     </ul>
                     <img src={mainImg} alt='' id='mainDetail'/>
                 </div>
@@ -235,12 +236,12 @@ const DetailDress = () => {
                     </p>
                 </div>
                 <ul>
-                    <li><img src={"../"+dress.imgsrc} alt="" /></li>
-                    <li><img src={"../"+dress.imgsrc2} alt="" /></li>
-                    <li><img src={"../"+dress.imgsrc3} alt="" /></li>
-                    <li><img src={"../"+dress.imgsrc} alt="" /></li>
-                    <li><img src={"../"+dress.imgsrc2} alt="" /></li>
-                    <li><img src={"../"+dress.imgsrc3} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc}`} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc2}`} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc3}`} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc}`} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc2}`} alt="" /></li>
+                    <li><img src={`${API_URL}/${dress.imgsrc3}`} alt="" /></li>
                 </ul>
             </div>
         </div>
