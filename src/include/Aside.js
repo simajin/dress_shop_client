@@ -112,9 +112,8 @@ const Aside = () => {
                 <ul id="menu">
                     {
                         isLogin && <>
-                        <li>Welcome {uname}!</li>
+                        <li className='logUser'>Welcome {uname}💍</li>
                         <li onClick={logoutClick}>LOGOUT<br/><br/></li>
-                        {/* <li><Link to="/join">회원정보수정</Link></li>  */}
                         </>
                     }
                     {

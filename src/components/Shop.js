@@ -3,17 +3,24 @@ import './ShopCss.css';
 import axios from 'axios';
 import ShopList from './ShopList';
 import { Link } from 'react-router-dom';
+// import { API_URL } from './config/contansts';
+import { getCookie } from './util/cookie';
 import { API_URL } from './config/contansts';
 
 
 const Shop = () => {
+    // 관리자 로그인시
+    const userid = getCookie('userid');
+    console.log(userid);
+
     //mysql로 데이터 불러오기
     const [ dresses, setDresses ] = useState([]);
     const [ alldresses, setallDresses ] = useState([]);
     // const [ dressAll, setDressAll ] = useState([]);
     useEffect(()=>{ 
         // axios.get("http://localhost:8000/dresses")
-        axios.get(`https://dress-shop-server.herokuapp.com/dresses`)
+        // axios.get(`https://dress-shop-server.herokuapp.com/dresses`)
+        axios.get(`${API_URL}/dresses`)
         .then(result=>{
             const dresses = result.data;
             console.log(dresses)
@@ -68,7 +75,9 @@ const Shop = () => {
                 <li id='sig' onClick={tSig}>SIGNATURE</li>
                 <li id='bLine' onClick={tBelline}>Bellline</li>
                 <li id='mMaid' onClick={tMermaid}>Mermaid</li>
-                <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
+                {userid === 'admin' ?
+                    <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
+                : ""}
                 <li>
                     <p onClick={searchClick}>Category</p>
                     <ul id='shopSearch'>

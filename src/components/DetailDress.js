@@ -5,9 +5,15 @@ import './DetailDress.css'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { API_URL } from './config/contansts';
+import { getCookie } from './util/cookie';
 
 const DetailDress = () => {
     const navigate = useNavigate();
+
+    // 관리자 로그인시
+    const userid = getCookie('userid');
+    console.log(userid);
+
     // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
     const qttNum = document.querySelector("#qttNum");
@@ -76,6 +82,7 @@ const DetailDress = () => {
     //카트 추가
     const addToCart = ()=>{
         // axios.post(`http://localhost:8000/addToCart`, cartData)
+            // eslint-disable-next-line
         if(qttNum.value == 0){
             window.alert("수량을 입력해주세요.");
         }else{
@@ -218,10 +225,12 @@ const DetailDress = () => {
                         </select>
                         <input id='qttNum' type="number" min="0" max={maxQtt} onChange={qttChange} />
                         <button onClick={addToCart}>ADD TO CART</button>
-                        <div>
-                            <button id='editBtn'><Link to={`/editDress/${dress.id}`}>EDIT</Link></button>
-                            <button id='deleteBtn' onClick={onDelete}>DELETE</button>
-                        </div>
+                        {userid === 'admin' ?
+                            <div>
+                                <button id='editBtn'><Link to={`/editDress/${dress.id}`}>EDIT</Link></button>
+                                <button id='deleteBtn' onClick={onDelete}>DELETE</button>
+                            </div>
+                        : "" }
                     </div>
                 </div>
             </div>

@@ -152,6 +152,10 @@ html{
 #menu > li {
   padding-bottom: 16px;
 }
+#menu > .logUser {
+  font-size: 28px;
+  font-weight: 600;
+}
 #menu:hover .barBtn  {
   display: block;
 }
