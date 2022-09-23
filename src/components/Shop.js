@@ -83,18 +83,18 @@ const Shop = () => {
                     <ul id='shopSearch'>
                         <li>
                             <ul id='shopType'>
-                                <li className='search'>Type : </li>
+                                <li className='search'>Type: </li>
                                 <li onClick={tBelline}>Bellline</li>
                                 <li onClick={tMermaid}>Mermaid</li>
                             </ul>
                             <ul id='shopSize'>
-                                <li className='search'>Size : </li>
+                                <li className='search'>Size: </li>
                                 <li onClick={sizeS}>S</li>
                                 <li onClick={sizeM}>M</li>
                                 <li onClick={sizeL}>L</li>
                             </ul>
                             <ul id='shopSeason'>
-                                <li className='search'>Season : </li>
+                                <li className='search'>Season: </li>
                                 <li onClick={seasonSS22}>SS22</li>
                                 <li onClick={seasonFW21}>FW21</li>
                                 <li onClick={seasonSS21}>SS21</li>
