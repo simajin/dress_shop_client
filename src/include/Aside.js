@@ -9,6 +9,7 @@ import { getCookie, removeCookie } from '../components/util/cookie';
 
 const Aside = () => {
     // ⚡쿠키 -- 로그인 유지
+    const uid = getCookie('userid');
     const uname = getCookie('username');
     const dispatch = useDispatch();
     const isLogin = useSelector(state=>state.logincookie.isLogin)
@@ -127,7 +128,7 @@ const Aside = () => {
                     {/* <li><Link to="/login" className='log'>LOGIN</Link><br/><br/></li> */}
                     <li onClick={aboutEvent}><Link to='/'>ABOUT</Link></li>
                     <li><Link to="/shop">SHOP</Link></li>
-                    <li><Link to="/cart">CART</Link></li>
+                    <li><Link to={`/cart/${uid}`}>CART</Link></li>
                     <li><Link to="/shop">SEARCH</Link></li>
                     {/* <li id='searchText'> */}
                         {/* <p  onClick={showSearchMenu}><Link to="/shopSearch">SEARCH</Link></p> */}

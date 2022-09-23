@@ -91,7 +91,7 @@ const DetailDress = () => {
                 console.log("카트추가완료");
     
                 if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
-                    navigate('/cart');
+                    navigate(`/cart/${userid}`);
                     console.log("옙")
                 }else{
                     console.log("놉")
