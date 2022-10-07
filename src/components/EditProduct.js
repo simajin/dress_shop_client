@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './ShopCss.css';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from './config/contansts';
@@ -157,6 +157,12 @@ const EditProduct = () => {
     const check = ()=>{
         console.log(formData);
     }
+
+    //취소 onClick 이벤트 
+    const resetClick = (e) => {
+        navigate(-1);
+    }
+
     // get전송으로 받은거
     if(!dress) return <div>로딩중...</div>
     return (
@@ -217,7 +223,7 @@ const EditProduct = () => {
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit' onClick={check}>수정</button>
-                        <button type='reset'>취소</button>
+                        <button type='reset' onClick={resetClick}>취소</button>
                     </li>
                 </ul>
             </form>

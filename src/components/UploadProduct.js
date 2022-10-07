@@ -147,6 +147,12 @@ const UploadProduct = () => {
     const check = ()=>{
         console.log(formData);
     }
+
+    //취소 onClick 이벤트 
+    const resetClick = (e) => {
+        navigate(-1);
+    }
+
     return (
     <div>
         <div id='uploadBox'>
@@ -202,7 +208,7 @@ const UploadProduct = () => {
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit' onClick={check}>등록</button>
-                        <button type='reset'>취소</button>
+                        <button type='reset' onClick={resetClick}>취소</button>
                     </li>
                 </ul>
             </form>

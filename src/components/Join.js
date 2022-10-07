@@ -97,6 +97,12 @@ const Join = () => {
             console.log(e);
         })
     }
+
+    //취소 onClick 이벤트 
+    const resetClick = (e) => {
+        navigate(-1);
+    }
+
     return (
         <form id='joinForm' onSubmit={onSubmit}>
             <div>
@@ -161,7 +167,7 @@ const Join = () => {
                         <tr className='tableTr tableSubmit'>
                             <td colSpan="2">
                                 <button type='submit'>등록</button>
-                                <button type='cancel'>취소</button>
+                                <button type='cancel' onClick={resetClick}>취소</button>
                             </td>
                         </tr>
                     </tbody>
