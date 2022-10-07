@@ -71,43 +71,46 @@ const Shop = () => {
 
     return (
         <div id="shop">
-            <ul id='shopLeft'>
-                <li id='sig' onClick={tSig}>SIGNATURE</li>
-                <li id='bLine' onClick={tBelline}>Bellline</li>
-                <li id='mMaid' onClick={tMermaid}>Mermaid</li>
-                {userid === 'admin' ?
-                    <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
-                : ""}
-                <li>
-                    <p onClick={searchClick}>Category</p>
-                    <ul id='shopSearch'>
-                        <li>
-                            <ul id='shopType'>
-                                <li className='search'>Type: </li>
-                                <li onClick={tBelline}>Bellline</li>
-                                <li onClick={tMermaid}>Mermaid</li>
-                            </ul>
-                            <ul id='shopSize'>
-                                <li className='search'>Size: </li>
-                                <li onClick={sizeS}>S</li>
-                                <li onClick={sizeM}>M</li>
-                                <li onClick={sizeL}>L</li>
-                            </ul>
-                            <ul id='shopSeason'>
-                                <li className='search'>Season: </li>
-                                <li onClick={seasonSS22}>SS22</li>
-                                <li onClick={seasonFW21}>FW21</li>
-                                <li onClick={seasonSS21}>SS21</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul id='shopRight'>
-                {dresses.map(dress=>(
-                    <ShopList key={dress.id} dress={dress}/>
-                ))} 
-            </ul>
+            <div id='shopWrap'>
+                <ul id='shopLeft'>
+                    <li id='sig' onClick={tSig}>SIGNATURE</li>
+                    <li id='bLine' onClick={tBelline}>Bellline</li>
+                    <li id='mMaid' onClick={tMermaid}>Mermaid</li>
+                    {userid === 'admin' ?
+                        <li id="upProduct"><Link to='/upload'>Upload Product</Link></li>
+                    : ""}
+                    <li id='category'>
+                        <p onClick={searchClick}>Category</p>
+                        <ul id='shopSearch'>
+                            <li>
+                                <ul id='shopType'>
+                                    <li className='search'>Type: </li>
+                                    <li onClick={tBelline}>Bellline</li>
+                                    <li onClick={tMermaid}>Mermaid</li>
+                                </ul>
+                                <ul id='shopSize'>
+                                    <li className='search'>Size: </li>
+                                    <li onClick={sizeS}>S</li>
+                                    <li onClick={sizeM}>M</li>
+                                    <li onClick={sizeL}>L</li>
+                                </ul>
+                                <ul id='shopSeason'>
+                                    <li className='search'>Season: </li>
+                                    <li onClick={seasonSS22}>SS22</li>
+                                    <li onClick={seasonFW21}>FW21</li>
+                                    <li onClick={seasonSS21}>SS21</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id='shopRight'>
+                    {dresses.map(dress=>(
+                        <ShopList key={dress.id} dress={dress}/>
+                    ))} 
+                </ul>
+
+            </div>
             {/* <ul id='shopRight'>
                 <li>
                     <div className='shopImg'>
