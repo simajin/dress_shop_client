@@ -79,6 +79,7 @@
     }
     .aboutText {
         width: 80%;
+        padding-left: 0;
     }
     #aboutCEO .aboutText {
         margin-top: 50px;
