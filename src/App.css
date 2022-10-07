@@ -309,8 +309,9 @@ html{
   #header {
     /* height: 100px; */
     height: 120px;
-    animation: chameleon 10s infinite forwards;
-    /* background: inherit; */
+    /* animation: chameleon 10s infinite forwards; */
+    /* background: rgba(0,0,0,0.5); */
+    position: absolute;
     z-index: 10;
   }
   #wLogo{

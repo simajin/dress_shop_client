@@ -30,8 +30,8 @@ const DetailDress = () => {
         // axios.get(`http://localhost:8000/dress/${id}`)
         axios.get(`${API_URL}/dress/${id}`)
         .then(result => {
-            console.log(result);
             const resulta = result.data;
+            // console.log(resulta[0])
             setDress(resulta[0]); 
             // setMainImg('http://localhost:3000/'+resulta[0].imgsrc);
             // setMainImg(`https://dress-shop-client-eight.vercel.app/${resulta[0].imgsrc}`);
@@ -43,12 +43,11 @@ const DetailDress = () => {
                     c_name : resulta[0].name,
                     c_price : resulta[0].price,
                     c_size : "",
-                    // c_amount : qtt,
                     c_amount : "",
                     c_userid : userid,
                     c_productid : resulta[0].id,
             });
-            console.log(resulta[0].id);
+            console.log(cartData);
         })   
         .catch(e=> {
             console.log(e);
