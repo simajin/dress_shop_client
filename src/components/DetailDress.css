@@ -69,6 +69,9 @@
 #detailRight ul li {
     font-size: 20px;
 }
+#detailRight ul li p {
+    font-size: 18px;
+}
 #detailRight ul h3 {
     padding-bottom: 16px;
     font-size: 26px;
@@ -158,4 +161,47 @@
     font-size: 18px;
     font-weight: 600;
     margin: 30px 0 15px 0;
+}
+
+
+/* 반응형 max-width:768px */
+@media screen and (max-width:768px) {
+    #detailHead {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    #detailHead #detailLeft {
+        width: 100%;
+        flex-direction: column;
+    }
+    #detailLeft #imgList {
+        width: 100%;
+        flex-direction: row;
+    }
+    #mainDetail {
+        width: 100%;
+        height: auto;
+        padding-left: 0;
+    }
+    #detailRight {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    #detailRight p {
+        font-size: 28px;
+    }
+    #detailRight h2 {
+        text-align: center;
+    }
+    #detailRight ul h3{
+        padding-left: 0;
+        text-align: center;
+    }
+    #detailRight ul li{
+        text-align: center;
+    }
+    #selectBox {
+        margin-top: 20px;
+    }
 }

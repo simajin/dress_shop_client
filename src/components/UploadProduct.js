@@ -190,17 +190,15 @@ const UploadProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic1" onChange={onChangeImg} />
-                        {/* <input type="file" name="c_pic1" value={formData.c_pic1} onChange={onChangeImg} id='imgInput' />
-                        <input type="hidden" name="real_path" value={formData.c_pic1} id='real_path' /> */}
+                        <input className='fileInput' type="file" name="c_pic1" onChange={onChangeImg} />
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic2" onChange={onChangeImg} />
+                        <input className='fileInput' type="file" name="c_pic2" onChange={onChangeImg} />
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic3" onChange={onChangeImg} />
+                        <input className='fileInput' type="file" name="c_pic3" onChange={onChangeImg} />
                     </li>
                     <li id='uploadBtn'>
                         <button type='submit' onClick={check}>등록</button>

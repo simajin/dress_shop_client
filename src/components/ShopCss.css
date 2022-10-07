@@ -173,12 +173,14 @@
 }
 #uploadBox input{
     width: 70%;
+    border: 1px solid #666;
 }
 #uploadBox select{
     width: 70%;
 }
-#uploadBox input{
+#uploadBox textarea{
     width: 70%;
+    border: 1px solid #666;
 }
 #uploadBtn button {
     border: none;
@@ -216,7 +218,7 @@
     }
     #shopLeft {
         width: 100%;
-        height: 50px;
+        height: 60px;
         color: #fff;
         font-size: 22px;
         padding: 0;
@@ -237,6 +239,12 @@
         position: absolute;
         width: 100%;
     }
+    #shopLeft #upProduct{
+        width: 100%;
+        position: relative;
+        border-radius: 0;
+        bottom: 0;
+    }
     #shopRight {
         width: 100%;
     }
@@ -248,5 +256,17 @@
     }
     .listWrap .shopText { 
         padding-left: 10px;
+    }
+
+
+    /* 업로드 */
+    #uploadBox {
+        width: 100%;
+    }
+    #uploadBox li:not(:last-child){
+        padding: 0;
+    }
+    #uploadBox .fileInput {
+        border: none;
     }
 }
