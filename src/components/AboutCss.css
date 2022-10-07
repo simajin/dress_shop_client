@@ -8,6 +8,9 @@
     margin: 0 auto;
     color: #fff;
     font-family: 'Playfair Display','Gowun Dodum',serif;
+    /* 추가 */
+    position: relative;
+    z-index: 10;
 }
 #about::before{
     display: block;

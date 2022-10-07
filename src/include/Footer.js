@@ -15,7 +15,8 @@ const Footer = () => {
             },200)
             info = 0 ;
         }else if(info === 0){
-            footerMenu.style.bottom ="-150px";
+            // footerMenu.style.bottom ="-150px";
+            footerMenu.style.bottom ="-200px";
             footerMenu.style.transition = "0.5s";
             setTimeout(()=>{
                 footerBtn.style.color = "#fff";
@@ -47,7 +48,8 @@ const Footer = () => {
                 // eslint-disable-next-line
                 info = 0;
             }else{
-                footerMenu.style.bottom = "-150px";
+                // footerMenu.style.bottom = "-150px";
+                footerMenu.style.bottom = "-200px";
                 footerMenu.style.transition = "0.5s";
                 setTimeout(()=>{
                     footerBtn.style.color = "#fff";
@@ -67,6 +69,13 @@ const Footer = () => {
                     <p>2022 © W Wedding. All Rights Reserved.</p>
                     <p>법인명 : (주)더블유 웨딩 │ 사업자등록번호: 111-23-445678</p>
                     <p>대표번호 : <span>052-123-0000</span> │주소: 울산광역시 남구 삼산로 1│ 대표자명: 김예진</p>
+                    <div id='hideFoot'>
+                        <p>법인명 : (주)더블유 웨딩</p>
+                        <p>사업자등록번호: 111-23-445678</p>
+                        <p>대표번호 : <span>052-123-0000</span></p>
+                        <p>주소: 울산광역시 남구 삼산로 1</p>
+                        <p>대표자명: 김예진</p>
+                    </div>
                 </div>
                 <h1 id='logoBot'><svg id="wLogoBot" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50"><path id="logoLineBot" className="cls-2" d="M28.36,26S8.5,30.5,5.5,19.5s29-18,30-4a243.83,243.83,0,0,1,0,29h1.65S49.53,21.76,49.52,24.63,52.29,43.5,60.4,44.5s-1.9-11,14.1-40"/></svg></h1>
             </div>
