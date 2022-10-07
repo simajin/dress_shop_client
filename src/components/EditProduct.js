@@ -202,17 +202,17 @@ const EditProduct = () => {
                     </li>
                     <li>
                         <label htmlFor="pic1">사진1</label>
-                        <input type="file" name="c_pic4" onChange={onChangeImg} />
+                        <input className='fileInput' type="file" name="c_pic4" onChange={onChangeImg} />
                         <p className='fakeImgName'>{dress.imgsrc}</p>
                     </li>
                     <li>
                         <label htmlFor="pic2">사진2</label>
-                        <input type="file" name="c_pic5" onChange={onChangeImg} />
+                        <input className='fileInput' type="file" name="c_pic5" onChange={onChangeImg} />
                         <p className='fakeImgName'>{dress.imgsrc2}</p>
                     </li>
                     <li>
                         <label htmlFor="pic3">사진3</label>
-                        <input type="file" name="c_pic6" onChange={onChangeImg} />
+                        <input className='fileInput' type="file" name="c_pic6" onChange={onChangeImg} />
                         <p className='fakeImgName'>{dress.imgsrc3}</p>
                     </li>
                     <li id='uploadBtn'>

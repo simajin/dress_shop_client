@@ -206,11 +206,11 @@ const DetailDress = () => {
                     </div>
                     <ul>
                         <li><h3>MEASUREMENTS</h3></li>
-                        <li>US 2-4 / IT 32-34 / KR 44-55 / size – S <span>재고 :  {dress.size1}</span></li> 
-                        <li>US 6-8 / IT 36-38 / KR 55-66 / size – M <span>재고 :  {dress.size2}</span></li>
-                        <li>US 10 / IT 40 / KR 66-77 / size – L <span>재고 :  {dress.size3}</span></li>
+                        <li><p>US 2-4 / IT 32-34 / KR 44-55 / size – S</p> <span>재고 :  {dress.size1}</span></li> 
+                        <li><p>US 6-8 / IT 36-38 / KR 55-66 / size – M</p> <span>재고 :  {dress.size2}</span></li>
+                        <li><p>US 10 / IT 40 / KR 66-77 / size – L</p> <span>재고 :  {dress.size3}</span></li>
                     </ul>
-                    <div>
+                    <div id='selectBox'>
                         {/* <select id='slt' onChange={ e =>{
                             e.target.value === "1" ?  setMaxQtt(dress.size1) : e.target.value === "2" ? setMaxQtt(dress.size2) : setMaxQtt(dress.size3);
                             e.target.value === "1" ?  setSize("S") : e.target.value === "2" ? setSize("M") : setSize("L");

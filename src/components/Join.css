@@ -25,7 +25,7 @@
     font-size: 40px;
 }
 #joinForm input { 
-    /* width: 80%; */
+    width: 95%;
     height: 30px;
     padding: 0 14px;
     border: none;
@@ -53,11 +53,11 @@
     margin: 0 auto;
 }
 #joinTable .tableAdd input:nth-child(1) {
-    width: 100%;
+    width: 95%;
     /* position: absolute; */
 }
 #joinTable .tableAdd input:nth-child(2) {
-    width: 100%;
+    width: 95%;
     margin-top: 5px;
     /* position: absolute;
     top: 60%;
@@ -67,7 +67,7 @@
     /* position: absolute;
     bottom: -50%;
     margin-bottom: 50px; */
-    width: 110px;
+    width: 100px;
     height: 30px;
     font-size: 13px;
 }
@@ -77,6 +77,9 @@
     left: 7%;
     transform: translateY(-50%);
 }
+#joinForm .tableGender {
+    padding-left: 15px;
+}
 #joinForm .gender {
     width: 10%;
     height: 18px;
@@ -84,6 +87,11 @@
 #joinForm .phoneNum {
     display: flex;
     justify-content: space-between;
+    margin-left: 10px;
+    width: 95%;
+}
+#joinForm .phoneNum input {
+    margin-left: 0;
 }
 #joinForm .phone { 
     width: 28%;
@@ -126,26 +134,43 @@
 /* 반응형 */
 @media screen and (max-width: 768px) {
     #joinForm {
-        width: 70%;
+        width: 100%;
         height: 90vh;
-        margin-top: 5vh;
-    } 
+        margin-top: 10vh;
+    }
+    #joinForm h2{
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    #joinTable {
+        width: 100%;
+    }
     #joinTable td:nth-child(1){
         width: 30%;
     }
     #joinTable td:nth-child(2) {
         width: 100%;
     }
-    #joinForm .phoneNum {
-        width: 100%;
+    #joinForm #joinTable .phoneNum {
+        width: 95%;
     }
-    /* #joinForm .phoneNum input {
-        width: 100%;
-    } */
+    #joinForm .phoneNum input {
+        padding: 0 6px;
+    }
     #joinTable .phone {
-        padding-left: 5px;
+        margin-left: 0;
     }
     #joinForm .tableGender {
         padding-left: 15px;
     }
+    #joinForm #joinTable input {
+        width: 95%;
+    }
+    #joinForm #joinTable .gender {
+        width: 30%;
+    }
+    #joinForm > div {
+        border-radius: 0;
+    }
 }
+
