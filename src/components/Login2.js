@@ -48,11 +48,11 @@ const Login2 = () => {
                     // dispatch(goToHome(navigate))
                     navigate('/');
                 }else {
-                    alert('이메일과 비밀번호를 확인해주세요 ');
+                    alert('아이디와 비밀번호를 확인해주세요 ');
                 }
             })
             .catch(e=>{
-                alert('이메일과 비밀번호를 확인해주세요 ');
+                alert('아이디와 비밀번호를 확인해주세요 ');
             })
         }
     }

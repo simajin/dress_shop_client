@@ -12,7 +12,7 @@ const DetailDress = () => {
 
     // 로그인시 -- cookie값 받아옴
     const userid = getCookie('userid');
-    console.log(userid);
+    // console.log(userid);
 
     // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
@@ -46,7 +46,9 @@ const DetailDress = () => {
                     // c_amount : qtt,
                     c_amount : "",
                     c_userid : userid,
+                    c_productid : resulta[0].id,
             });
+            console.log(resulta[0].id);
         })   
         .catch(e=> {
             console.log(e);
@@ -89,6 +91,7 @@ const DetailDress = () => {
             axios.post(`${API_URL}/addToCart`, cartData)
             .then(res=>{
                 console.log("카트추가완료");
+                console.log(cartData)
     
                 if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
                     navigate(`/cart/${userid}`);

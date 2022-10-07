@@ -85,10 +85,10 @@
 @media screen and (max-width: 768px) {
     #LoginContent #inputs i:nth-child(1) {
         top: 5%;
-        left: 30%;
+        left: 8%;
     }
     #LoginContent #inputs i:nth-child(3) {
         top: 34%;
-        left: 30%;
+        left: 8%;
     }
 }

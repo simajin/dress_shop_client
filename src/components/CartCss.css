@@ -100,3 +100,60 @@
     width: 50px;
     height: 60px;
 }
+.mobileCart {
+    display: none;
+}
+
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+    /* 카트 */
+    /* ✔웹 카트 - none으로 안보이게 */
+    .cart1 {
+        display: none;
+    }
+    /* ✔모바일 반응형 카트 - block */
+    .mobileCart {
+        display: block;
+    }
+    #cartTable {
+        width: 100%;
+    }
+    #cartTable tr td {
+        border-top: none;
+        padding: 0;
+    }
+    #cartTable .mobile1 {
+        border-top: 1px solid #fff;
+        padding-top: 10px;
+    }
+    #cartTable .mobile2 {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+    }
+    #cartContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    #cartTable tbody tr td:nth-child(1), #cartTable tbody tr td:nth-child(2) {
+        width: 50%;
+    }
+    #cartTable tr td button {
+        padding: 6px 8px 4px;
+        font-size: 13px;
+    }
+    #cartTable img {
+        width: 80%;
+        height: auto;
+    }
+    /* 카트 총금액 계산(cartReceipt) */
+    #cartReceipt {
+        width: 100%;
+        margin-top: 65px;
+        height: 320px;
+    }
+    #cartReceipt button {
+        margin-top: 15px;
+    }
+}

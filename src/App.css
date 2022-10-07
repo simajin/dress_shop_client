@@ -307,7 +307,11 @@ html{
 @media screen and (max-width: 768px) {
   /* 헤더 */
   #header {
-    height: 100px;
+    /* height: 100px; */
+    height: 120px;
+    animation: chameleon 10s infinite forwards;
+    /* background: inherit; */
+    z-index: 10;
   }
   #wLogo{
     width: 100px;
