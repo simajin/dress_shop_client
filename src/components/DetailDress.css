@@ -193,6 +193,8 @@
     }
     #detailRight h2 {
         text-align: center;
+        padding-top: 10px;
+        text-decoration: underline;
     }
     #detailRight ul h3{
         padding-left: 0;
