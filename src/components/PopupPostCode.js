@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DaumPostcode from "react-daum-postcode";
 // npm install react-daum-postcode 설치하기!
 import './PopupPostCode.css';
 
 const PopupPostCode = (props) => {
+  const [popup, setPopup] = useState("window");
+  
     const handlePostCode = (data) => {
         let fullAddress = data.address;
         let extraAddress = ''; 
@@ -20,10 +22,28 @@ const PopupPostCode = (props) => {
         console.log(data)
         console.log(fullAddress)
         console.log(data.zonecode)
-        props.onAddData(data);         
-        
+        props.onAddData(data);  
     }
 
+    
+
+    useEffect(()=>{
+      const handleResize = (e)=>{
+        const {innerWidth} = e.target
+        console.log(innerWidth)
+        if(innerWidth <= 768){
+          setPopup("mobile");
+        }else {
+          setPopup("window");
+        }
+      }
+      console.log(window.innerWidth)
+      window.addEventListener("resize",handleResize);
+      
+      return ()=>{
+        window.removeEventListener("resize",handleResize);
+      }
+    },[])
     const postCodeStyle = {
         display: "block",
         position: "absolute",
@@ -36,11 +56,24 @@ const PopupPostCode = (props) => {
         border: "2px solid #666",
         zIndex: 20
       };
+    const postCodeMobile = {
+      display: "block",
+      position: "absolute",
+      top: '50%',
+      left: '30%',
+      transform:'translate(-50%,-50%)',
+      width: "350px",
+      height: "600px",
+      padding: "7px",
+      border: "2px solid #666",
+      zIndex: 20
+    }
  
     return(
         <div>
-            <DaumPostcode style={postCodeStyle} onComplete={handlePostCode} /> 
-            <button type='button' onClick={() => {props.onClose()}} className='postCode_btn'>입력</button>
+            <DaumPostcode style={window.innerWidth <= 768? postCodeMobile : postCodeStyle} onComplete={handlePostCode}/> 
+            {/* <DaumPostcode style={postCodeStyle} onComplete={handlePostCode} />  */}
+            <button type='button' onClick={() => {props.onClose()}} style={props.onPopup === true? {display:"block"} : {display:"none"}} className='postCode_btn'>닫기</button>
         </div>
     )
 }

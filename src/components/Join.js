@@ -5,6 +5,7 @@ import PopupPostCode from "./PopupPostCode";
 import axios from 'axios';
 import { API_URL } from './config/contansts';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Join = () => {
     const navigate = useNavigate();
@@ -16,12 +17,13 @@ const Join = () => {
             ...formData,
             c_add: data.address
         })
+        closePostCode();
     }
     //팝업창 상태 관리
     const [ isPopupOpen, setIsPopupOpen ] = useState(false);      
     //-팝업창 열기(true)       
-    const openPostCode = () =>{
-        setIsPopupOpen(true);                      
+    const openPostCode = (e) =>{
+        setIsPopupOpen(true);
     }
     //-팝업창 닫음(false)
     const closePostCode = () =>{
@@ -103,6 +105,10 @@ const Join = () => {
         navigate(-1);
     }
 
+    useEffect(()=>{
+        document.addEventListener("load",()=>{"하이"})
+    },[])
+
     return (
         <form id='joinForm' onSubmit={onSubmit}>
             <div>
@@ -154,6 +160,7 @@ const Join = () => {
                                         <PopupDom>
                                             <PopupPostCode onClose={closePostCode}
                                             onAddData={onAddData}
+                                            onPopup={isPopupOpen}
                                             />
                                         </PopupDom>
                                     )}

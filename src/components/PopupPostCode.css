@@ -1,5 +1,36 @@
 .postCode_btn {
     position: absolute;
-    bottom: 0;
-    left: 50%;
+    bottom: -200px;
+    right: 25%;
+    z-index: 25;
 }
+
+/* #popupDom > div > div {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 600px;
+    padding: 7px;
+    border: 2px solid #666;
+    z-index: 20;
+}; */
+
+
+/* 반응형 */
+/* @media screen and (max-width: 768px) {
+    #popupDom > div > div {
+        display: block;
+        position: absolute;
+        top: 30%;
+        left: -20%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+        height: 200px;
+        padding: 7px;
+        border: 2px solid #666;
+        z-index: 20;
+      }
+} */

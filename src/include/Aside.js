@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setLogout } from '../components/modules/logincookie';
 import { getCookie, removeCookie } from '../components/util/cookie';
+import { MenuClose } from './MenuClose';
 
 const Aside = () => {
     const navigate = useNavigate();
@@ -48,6 +49,7 @@ const Aside = () => {
         }, 300);
         
     }
+    const {menuBtn, burgerTabBtn1, burgerTabBtn2} = MenuClose();
     
     // 어바웃 클릭이벤트
     function aboutEvent(){
@@ -116,11 +118,11 @@ const Aside = () => {
     return (
         <>
             <div id="menu_bar" onClick={menuClick} className='inner'>
-                <span className='bugerTab'></span>
-                <span className='bugerTab'></span>
+                <span className='bugerTab' ref={burgerTabBtn1}></span>
+                <span className='bugerTab' ref={burgerTabBtn2}></span>
             </div>
         <aside>
-                <ul id="menu">
+                <ul id="menu" ref={menuBtn}>
                     {
                         isLogin && <>
                         <li className='logUser'>Welcome {uname}💍</li>

@@ -1,8 +1,22 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { VscInfo, VscTriangleUp, VscTriangleDown } from "react-icons/vsc";
+import { useLocation } from 'react-router-dom';
+
 
 const Footer = () => {
-    let info = 1;
+    const { pathname } = useLocation();
+    const [info, setInfo] = useState(1);
+    useEffect(()=>{
+        const footerMenu = document.querySelector("#hideFooter");
+        const footerBtn = document.querySelector("#footerBtn");
+        setTimeout(()=>{
+                footerMenu.style.bottom = "-200px";
+                footerMenu.style.transition = "0.5s";
+                footerBtn.style.color = "#fff";
+            },300)
+            setInfo(1);
+    },[pathname])
     function showFooter(){
         const footerMenu = document.querySelector("#hideFooter");
         const footerBtn = document.querySelector("#footerBtn");
@@ -13,7 +27,9 @@ const Footer = () => {
             setTimeout(()=>{
                 footerBtn.style.color = "#666";
             },200)
-            info = 0 ;
+            // info = 0 ;
+            setInfo(0);
+
         }else if(info === 0){
             // footerMenu.style.bottom ="-150px";
             footerMenu.style.bottom ="-200px";
@@ -21,7 +37,8 @@ const Footer = () => {
             setTimeout(()=>{
                 footerBtn.style.color = "#fff";
             },200)
-            info = 1;
+            // info = 1;
+            setInfo(1);
         }
         return info;
         
@@ -38,15 +55,16 @@ const Footer = () => {
             const footerBtn = document.querySelector("#footerBtn");
             const scrollHeight = document.body.scrollHeight-window.innerHeight
             console.log(window.scrollY);
-            console.log(scrollHeight)
-            if(window.scrollY >= scrollHeight){
+            console.log(scrollHeight-3)
+            if(window.scrollY >= scrollHeight-3){
                 footerMenu.style.bottom = "0";
                 footerMenu.style.transition = "0.5s";
                 setTimeout(()=>{
                     footerBtn.style.color = "#666";
                 },200)
                 // eslint-disable-next-line
-                info = 0;
+                // info = 0;
+                setInfo(0);
             }else{
                 // footerMenu.style.bottom = "-150px";
                 footerMenu.style.bottom = "-200px";
@@ -54,11 +72,13 @@ const Footer = () => {
                 setTimeout(()=>{
                     footerBtn.style.color = "#fff";
                 },200)
-                info = 1;
+                // info = 1;
+                setInfo(1);
             }
             return info;
         })
-    },[])
+        // eslint-disable-next-line
+    }, [])
     return (
         <div id="footer">
             <button id="footerBtn" onClick={showFooter}><VscInfo/></button>
