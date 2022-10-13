@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { API_URL } from './config/contansts';
 import { getCookie } from './util/cookie';
+import Loading from './loading/Loading';
 
 const DetailDress = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const DetailDress = () => {
     // 로그인시 -- cookie값 받아옴
     const userid = getCookie('userid');
     // console.log(userid);
+
 
     // const slt = document.querySelector("#slt");
     // const opQtt = document.querySelectorAll(".qtt");
@@ -55,7 +57,9 @@ const DetailDress = () => {
         })
         // eslint-disable-next-line
     },[])
-    if(!dress) return <div>로딩중...</div>
+
+    if(!dress) return <div><Loading/></div>
+    
     setInterval(() => {
         if(currentImg === 6){
             setCurrentImg(0);
@@ -81,27 +85,33 @@ const DetailDress = () => {
     //     )
     // }
     //카트 추가
-    const addToCart = ()=>{
-        // axios.post(`http://localhost:8000/addToCart`, cartData)
-            // eslint-disable-next-line
-        if(qttNum.value == 0){
-            window.alert("수량을 입력해주세요.");
-        }else{
-            axios.post(`${API_URL}/addToCart`, cartData)
-            .then(res=>{
-                console.log("카트추가완료");
-                console.log(cartData)
-    
-                if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
-                    navigate(`/cart/${userid}`);
-                    console.log("옙")
-                }else{
-                    console.log("놉")
-                }
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+    const addToCart = ()=>{        
+        //로그인X -> cart 클릭시, 로그인 후 이용 알람창
+        if(!userid) {
+            alert('로그인 후 이용해주세요.');
+            navigate('/login');
+        } else {
+            // axios.post(`http://localhost:8000/addToCart`, cartData)
+                // eslint-disable-next-line
+            if(qttNum.value == 0){
+                window.alert("수량을 입력해주세요.");
+            }else{
+                axios.post(`${API_URL}/addToCart`, cartData)
+                .then(res=>{
+                    console.log("카트추가완료");
+                    console.log(cartData)
+        
+                    if( window.confirm("장바구니에 담겼습니다. 장바구니로 가시겠습니까?")){
+                        navigate(`/cart/${userid}`);
+                        console.log("옙")
+                    }else{
+                        console.log("놉")
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
+            }
         }
     }
     const selectOnChange = (e) => {
@@ -134,6 +144,8 @@ const DetailDress = () => {
             c_amount : e.target.value,
         })
     }
+
+    // if(!dress) return <div><Loading/></div>
     return (
         <div id='detail'>
             <div id='detailHead'>

@@ -92,7 +92,9 @@
     border: none;
     outline: none;
     margin-right: 10px;
-    padding-left: 150px;
+    /* padding-left: 150px; */
+    text-align: right;
+    padding-right: 10px;
 }
 #detailRight div button:nth-child(3) {
     width: 140px;
@@ -193,8 +195,20 @@
     }
     #detailRight h2 {
         text-align: center;
-        padding-top: 10px;
+        padding: 20px 0 5px 0;
         text-decoration: underline;
+    }
+    #detailRight > div > p {
+        padding-bottom: 15px;
+    }
+    #detailRight > div > p::after {
+        content: "";
+        display: block;
+        color: #fff;
+        width: 40%;
+        background: #fff;
+        height: 1px;
+        margin: 15px auto;
     }
     #detailRight ul h3{
         padding-left: 0;

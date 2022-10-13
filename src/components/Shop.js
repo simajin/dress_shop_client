@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // import { API_URL } from './config/contansts';
 import { getCookie } from './util/cookie';
 import { API_URL } from './config/contansts';
+import Loading from './loading/Loading';
 
 
 const Shop = () => {
@@ -17,6 +18,8 @@ const Shop = () => {
     const [ dresses, setDresses ] = useState([]);
     const [ alldresses, setallDresses ] = useState([]);
     // const [ dressAll, setDressAll ] = useState([]);
+    //*로딩상태 - useState로 상태관리
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{ 
         // axios.get("http://localhost:8000/dresses")
         // axios.get(`https://dress-shop-server.herokuapp.com/dresses`)
@@ -27,12 +30,14 @@ const Shop = () => {
             console.log(result.data)
             setallDresses(result.data)
             setDresses(result.data)
+            setLoading(false);  //렌더링이 완료(dresses데이터들을 다 불러오면)가 되면 setLoading은 false
         })
         .catch(e=>{
             console.log(e);
         })
     },[])
-
+    if(loading)  return <div><Loading/></div>;  
+    
     // 카테고리
     function tBelline(){ setDresses(alldresses.filter(e=>e.type==="belline")) }
     function tMermaid(){ setDresses(alldresses.filter(e=>e.type==="mermaid")) }
@@ -67,7 +72,27 @@ const Shop = () => {
     function seasonSS21() { setDresses(alldresses.filter(e=>e.name.includes("SS21"))) }
     function seasonFW21() { setDresses(alldresses.filter(e=>e.name.includes("FW21"))) }
 
-    if(dresses === []) return <div>로딩중...</div>
+    
+
+    //*로딩상태 - useState로 상태관리
+    // const [loading, setLoading] = useState(true);
+    // useEffect(()=>{
+    //     setLoading(false);  //렌더링이 완료가 되면 setLoading은 false
+    // },[]);
+    // if(loading)  return <div><Loading/></div>;
+    // if(dresses === []) return <div>{loading ? (<Loading/>) : "로딩중" }</div>
+    // if(alldresses === []) return <div>{loading ? (<Loading/>) : "로딩중" }</div>
+    // if(dresses === []) return <div><Loading/></div>
+    // if(alldresses === []) return <div><Loading/></div>
+    // if(!dresses && !alldresses) return <div>{loading ? (<Loading/>) : "로딩중" }</div>
+    // if(!alldresses) return <div>{loading ? (<Loading/>) : "로딩중" }</div>
+    // if(!dresses) return <div>{loading ? "로딩중" : (<Loading/>)}</div>
+    // if(!alldresses) return <div>{loading ?  "로딩중" : (<Loading/>)}</div>
+    // if(dresses == undefined) return <div><Loading/></div>
+    // if(alldresses == undefined) return <div><Loading/></div>
+    // if(!alldresses) return <div>{loading ?  "로딩중" : (<Loading/>)}</div>
+    
+        
 
     return (
         <div id="shop">

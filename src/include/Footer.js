@@ -79,6 +79,7 @@ const Footer = () => {
         })
         // eslint-disable-next-line
     }, [])
+
     return (
         <div id="footer">
             <button id="footerBtn" onClick={showFooter}><VscInfo/></button>
