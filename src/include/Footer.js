@@ -104,3 +104,67 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+
+
+// footer 수정
+// let info = 1;
+//     function showFooter(){
+//         const footerMenu = document.querySelector("#hideFooter");
+//         const footerBtn = document.querySelector("#footerBtn");
+        
+//         if(info === 1){
+//             footerMenu.style.bottom ="0";
+//             footerMenu.style.transition = "0.5s";
+//             setTimeout(()=>{
+//                 footerBtn.style.color = "#666";
+//             },200)
+//             info = 0 ;
+//         }else if(info === 0){
+//             // footerMenu.style.bottom ="-150px";
+//             footerMenu.style.bottom ="-200px";
+//             footerMenu.style.transition = "0.5s";
+//             setTimeout(()=>{
+//                 footerBtn.style.color = "#fff";
+//             },200)
+//             info = 1;
+//         }
+//         return info;
+        
+//     }
+//     function toTheTop(){
+//         window.scrollTo(0,0);
+//     }
+//     function toTheBot(){
+//         window.scrollTo(0,document.body.scrollHeight);
+//     }
+//     useEffect(()=>{
+//         window.addEventListener('scroll',()=>{
+//             const footerMenu = document.querySelector("#hideFooter");
+//             const footerBtn = document.querySelector("#footerBtn");
+//             const scrollHeight = document.body.scrollHeight-window.innerHeight
+//             console.log(window.scrollY);
+//             console.log(scrollHeight)
+//             if(window.scrollY >= scrollHeight){
+//                 footerMenu.style.bottom = "0";
+//                 footerMenu.style.transition = "0.5s";
+//                 setTimeout(()=>{
+//                     footerBtn.style.color = "#666";
+//                 },200)
+//                 // eslint-disable-next-line
+//                 info = 0;
+//             }else{
+//                 // footerMenu.style.bottom = "-150px";
+//                 footerMenu.style.bottom = "-200px";
+//                 footerMenu.style.transition = "0.5s";
+//                 setTimeout(()=>{
+//                     footerBtn.style.color = "#fff";
+//                 },200)
+//                 info = 1;
+//             }
+//             return info;
+//         })
+//     },[])

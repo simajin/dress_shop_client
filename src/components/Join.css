@@ -127,8 +127,9 @@
     text-align: center;
 }
 #tableAdd1 {
-    position: absolute;
-    top: 2%;
+    /* position: absolute;
+    top: 2%; */
+    vertical-align: top;
 }
 
 /* 반응형 */
@@ -137,6 +138,7 @@
         width: 100%;
         height: 90vh;
         margin-top: 10vh;
+        margin-bottom: 200px;
     }
     #joinForm h2{
         margin-top: 24px;
