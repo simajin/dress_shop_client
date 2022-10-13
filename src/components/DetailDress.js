@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { API_URL } from './config/contansts';
 import { getCookie } from './util/cookie';
+import { BiDownArrow, BiUpArrow } from "react-icons/bi";
+import { useRef } from 'react';
 import Loading from './loading/Loading';
 
 const DetailDress = () => {
@@ -28,6 +30,8 @@ const DetailDress = () => {
     // const [ qtt , setQtt ] = useState('');
     const [ currentImg, setCurrentImg ] = useState(0);
     const [ cartData, setCartData ] = useState();
+    const [ cartQtt, setCartQtt] = useState(0);
+    const qttInput = useRef();
     useEffect(()=>{
         // axios.get(`http://localhost:8000/dress/${id}`)
         axios.get(`${API_URL}/dress/${id}`)
@@ -45,7 +49,7 @@ const DetailDress = () => {
                     c_name : resulta[0].name,
                     c_price : resulta[0].price,
                     c_size : "",
-                    c_amount : "",
+                    c_amount : 0,
                     c_userid : userid,
                     c_productid : resulta[0].id,
             });
@@ -130,7 +134,7 @@ const DetailDress = () => {
         }else {
             setMaxQtt(dress.size3)
             num = "L"
-           
+            
         }
         setCartData({
             ...cartData,
@@ -143,6 +147,28 @@ const DetailDress = () => {
             ...cartData,
             c_amount : e.target.value,
         })
+    } 
+    const qttUp = ()=>{
+        if(cartQtt<maxQtt){
+            setCartQtt(cartQtt+1);
+            setCartData({
+                ...cartData,
+                c_amount : cartQtt+1,
+            })
+        }
+        console.log(cartQtt)
+        console.log(cartData.c_amount)
+    }
+    const qttDown = ()=>{
+        if(cartQtt>0){
+            setCartQtt(cartQtt-1);
+            setCartData({
+                ...cartData,
+                c_amount : cartQtt-1,
+            })
+        }
+        console.log(cartQtt)
+        console.log(cartData.c_amount)
     }
 
     // if(!dress) return <div><Loading/></div>
@@ -160,7 +186,7 @@ const DetailDress = () => {
                                 e.target.style.filter = "grayscale(80%)";
                                 e.target.style.border = "2px solid #fff"
                             }} src={`${API_URL}/${dress.imgsrc2}`} alt="" className='detailImg' /></li>
-                        <li><img onClick={(e)=>{
+                        <li><img style={{filter:"grayscale(80%)",border:"2px solid #fff"}} onClick={(e)=>{
                             setMainImg(e.target.src)
                             for(let i=0;i<detailImg.length;i++){
                                 detailImg[i].style.filter = "none";
@@ -237,10 +263,14 @@ const DetailDress = () => {
                             <option value="2" className='opQtt'>M</option>
                             <option value="3" className='opQtt'>L</option>
                         </select>
-                        <input id='qttNum' type="number" min="0" max={maxQtt} onChange={qttChange} />
-                        <button onClick={addToCart}>ADD TO CART</button>
+                        <input ref={qttInput} id='qttNum' type="number" min="0" max={maxQtt} value={cartQtt} onChange={qttChange} />
+                        <div id='qttBtn'>
+                            <button onClick={qttUp}><BiUpArrow /></button>
+                            <button onClick={qttDown}><BiDownArrow /></button>
+                        </div>
+                        <button id='addCartBtn' onClick={addToCart}>ADD TO CART</button>
                         {userid === 'admin' ?
-                            <div>
+                            <div style={{}}>
                                 <button id='editBtn'><Link to={`/editDress/${dress.id}`}>EDIT</Link></button>
                                 <button id='deleteBtn' onClick={onDelete}>DELETE</button>
                             </div>

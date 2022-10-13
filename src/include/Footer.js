@@ -53,27 +53,28 @@ const Footer = () => {
         window.addEventListener('scroll',()=>{
             const footerMenu = document.querySelector("#hideFooter");
             const footerBtn = document.querySelector("#footerBtn");
-            const scrollHeight = document.body.scrollHeight-window.innerHeight
-            console.log(window.scrollY);
-            console.log(scrollHeight-3)
-            if(window.scrollY >= scrollHeight-3){
-                footerMenu.style.bottom = "0";
-                footerMenu.style.transition = "0.5s";
-                setTimeout(()=>{
-                    footerBtn.style.color = "#666";
-                },200)
-                // eslint-disable-next-line
-                // info = 0;
-                setInfo(0);
-            }else{
-                // footerMenu.style.bottom = "-150px";
-                footerMenu.style.bottom = "-200px";
-                footerMenu.style.transition = "0.5s";
-                setTimeout(()=>{
-                    footerBtn.style.color = "#fff";
-                },200)
-                // info = 1;
-                setInfo(1);
+            const scrollHeight = document.body.scrollHeight-window.innerHeight;
+            const offsetHeight = document.body.offsetHeight;
+            if(offsetHeight > 2000){
+                if(window.scrollY >= scrollHeight-3){
+                    footerMenu.style.bottom = "0";
+                    footerMenu.style.transition = "0.5s";
+                    setTimeout(()=>{
+                        footerBtn.style.color = "#666";
+                    },200)
+                    // eslint-disable-next-line
+                    // info = 0;
+                    setInfo(0);
+                }else{
+                    // footerMenu.style.bottom = "-150px";
+                    footerMenu.style.bottom = "-200px";
+                    footerMenu.style.transition = "0.5s";
+                    setTimeout(()=>{
+                        footerBtn.style.color = "#fff";
+                    },200)
+                    // info = 1;
+                    setInfo(1);
+                }
             }
             return info;
         })
