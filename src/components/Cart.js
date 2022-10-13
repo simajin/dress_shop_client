@@ -5,6 +5,7 @@ import CartList from './CartList';
 // import { Link } from 'react-router-dom';
 import { API_URL } from './config/contansts';
 import { useParams } from 'react-router-dom';
+import Loading from './loading/Loading';
 // import { useParams } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
@@ -13,8 +14,10 @@ const Cart = () => {
 
     const [totalPrice, setTotalPrice] = useState(0);
     //  mysql로 데이터 불러오기
-     const [ carts, setCarts ] = useState([]);
-     useEffect(()=>{
+    const [ carts, setCarts ] = useState([]);
+    //*로딩상태 - useState로 상태관리
+    const [loading, setLoading] = useState(true);
+    useEffect(()=>{
         // axios.get(`http://localhost:8000/cart`)
         axios.get(`${API_URL}/cart/${ids}`)
         .then((result) => {
@@ -23,14 +26,14 @@ const Cart = () => {
             setCarts(result.data); 
             console.log(carts)
             let totalNum = 0;
-   
+            
             result.data.forEach(data => {
                 totalNum = totalNum+(data.price*Number(data.amount));
                 console.log(data.price)
                 setTotalPrice(totalNum)
             });
-    
-           
+            setLoading(false);
+            
         })   
         .catch(e=> {
             console.log(e);
@@ -38,7 +41,9 @@ const Cart = () => {
        
     },[ids])
     
-    if(!carts) return <div>로딩중...</div>
+    
+    // if(!carts) return <div><Loading/></div>
+    if(loading) return <div><Loading/></div>
     return (
         <div id='cartInner'>
             <h2>Cart</h2>
