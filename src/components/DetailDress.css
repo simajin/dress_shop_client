@@ -95,7 +95,7 @@
     padding-right: 10px;
 }
 #detailRight div #addCartBtn {
-    width: 140px;
+    width: 30%;
     height: 40px;
     border: none;
     outline: none;
@@ -178,6 +178,13 @@
 #slt {
     width: 10%;
 }
+#detailRight div #qttNum {
+    width: 35%
+}
+#qttBtn{
+    width: 5%;
+    margin-right: 5%;
+}
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -240,9 +247,6 @@ input[type="number"]::-webkit-inner-spin-button {
     #selectBox {
         margin-top: 20px;
         justify-content: center;
-    }
-    #detailRight div #qttNum {
-        width: 140px;
     }
     #qttBtn button{
         width: 30px;
