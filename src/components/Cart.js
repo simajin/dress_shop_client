@@ -6,10 +6,14 @@ import CartList from './CartList';
 import { API_URL } from './config/contansts';
 import { useParams } from 'react-router-dom';
 import Loading from './loading/Loading';
-// import { useParams } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { getCookie } from './util/cookie';
+
 
 const Cart = () => {
+    // ⚡쿠키 -- 로그인 유지
+    const uid = getCookie('userid');
+
+
     const { ids } = useParams();     //cart - id값 불러오기
 
     const [totalPrice, setTotalPrice] = useState(0);
@@ -50,9 +54,9 @@ const Cart = () => {
             <div id='cartContent'>
                 <table id='cartTable'>
                     <tbody>
-                        {carts.map(cart=>(
+                        {uid ? carts.map(cart=>(
                             <CartList key={cart.id} cart={cart} />
-                        ))}
+                        )) : <Loading/>}
                     </tbody>
                 </table>
                     <div id="cartReceipt">

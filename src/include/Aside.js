@@ -17,10 +17,10 @@ const Aside = () => {
     const dispatch = useDispatch();
     const isLogin = useSelector(state=>state.logincookie.isLogin)
     const logoutClick = () => {
-        removeCookie('username')
-        removeCookie('userid')
-        dispatch(setLogout())
-        
+        removeCookie('username');
+        removeCookie('userid');
+        dispatch(setLogout());
+        navigate('/');  //로그아웃시, 홈으로 이동
     }
     useEffect(()=>{
         
