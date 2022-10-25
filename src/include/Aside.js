@@ -143,6 +143,7 @@ const Aside = () => {
                     <li onClick={onCart}><Link to={`/cart/${uid}`}>CART</Link></li>
                     {/* <li><Link to="/shop">SEARCH</Link></li> */}
                     <li><Link to="/notice">NOTICE</Link></li>
+                    <li><Link to="/info">INFORM</Link></li>
                     {/* <li id='searchText'> */}
                         {/* <p  onClick={showSearchMenu}><Link to="/shopSearch">SEARCH</Link></p> */}
                         {/* <ul id='searchBox' ref={searchBox}>
