@@ -27,6 +27,7 @@ const Notice = () => {
     return (
         <div id="notice">
             <h2>NOTICE</h2>
+            <p>제목을 클릭해주세요!</p>
             <table>
                 <tbody>
                     <tr>
