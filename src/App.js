@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCookie } from './components/util/cookie';
 import { setLogin } from './components/modules/logincookie';
+import Notice from './components/Notice';
 
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path='/cart/:ids' element={<Cart/>} />
         <Route path='/upload' element={<UploadProduct/>} />
         <Route path='/editDress/:id' element={<EditProduct/>} />       
+        <Route path='/notice' element={<Notice/>} />       
       </Routes>
       <Footer/>
     </div>
